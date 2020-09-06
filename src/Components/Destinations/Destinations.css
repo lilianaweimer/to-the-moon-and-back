@@ -1,0 +1,12 @@
+.destinations {
+  margin: 40px;
+  border: solid 2px #ADB8EB;
+  padding: 2%;
+  background-color: #050517;
+  border-radius: 6px;
+}
+
+.slick-dots li button:before {
+  color: #ADB8EB!important;
+}
+

@@ -1,0 +1,11 @@
+.header {
+  border: solid 1px black;
+  background-color: #050517;
+  height: 10%;
+  padding-top: 1%;
+}
+
+h1 {
+  margin-top: 2%;
+  color: white;
+}
