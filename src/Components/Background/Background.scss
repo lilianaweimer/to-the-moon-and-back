@@ -1,7 +1,16 @@
 // @import compass
 
 // n is number of stars required
-@function multiple-box-shadow ($n) {
+
+@function multiple-box-shadow-yellow ($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFCC00';
+  @for $i from 2 through $n {
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFCC00';
+  }
+  @return unquote($value)
+}
+
+@function multiple-box-shadow-white ($n) {
   $value: '#{random(2000)}px #{random(2000)}px #FFF';
   @for $i from 2 through $n {
     $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
@@ -9,14 +18,14 @@
   @return unquote($value)
 }
 
-$shadows-small:  multiple-box-shadow(700);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big: multiple-box-shadow(100);
+$shadows-small:  multiple-box-shadow-white(700);
+$shadows-medium: multiple-box-shadow-yellow(200);
+$shadows-big: multiple-box-shadow-white(100);
 
 html {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-  overflow: hidden
+  overflow: hidden;
 }
 
 #stars {

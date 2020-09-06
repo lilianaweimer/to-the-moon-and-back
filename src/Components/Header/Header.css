@@ -1,9 +1,11 @@
 .header {
   border: solid 1px black;
-  background-color: black;
+  background-color: #050517;
+  height: 10%;
+  padding-top: 1%;
 }
 
 h1 {
-  align: left;
+  margin-top: 2%;
   color: white;
 }

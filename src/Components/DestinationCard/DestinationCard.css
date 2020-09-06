@@ -1,13 +1,14 @@
 .destination-card {
-  border: solid 1px white;
+  background-color: #ADB8EB;
   width: 70%;
-  height: 200px;
+  height: 250px;
   margin: 0 auto;
-  
+  margin-bottom: 4%;
+  border-radius: 6px;
 }
 
 .destination-name {
-  color: white;
   font-size: 1.3em;
   font-weight: 700;
+  padding-top: 3%;
 }
