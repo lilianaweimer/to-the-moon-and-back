@@ -6,6 +6,9 @@ function Destinations() {
   return (
     <div className='destinations'>
       <DestinationCard />
+      <DestinationCard />
+      <DestinationCard />
+      <DestinationCard />
     </div>
   )
 }
