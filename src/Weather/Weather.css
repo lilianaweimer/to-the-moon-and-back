@@ -1,0 +1,11 @@
+.weather {
+  border: solid 2px white;
+  color: white;
+  display: flex;
+  margin-left: 26%;
+  margin-top: 5%;
+  margin-bottom: 9%;
+  justify-content: center;
+  width: 50%;
+  padding: 3%;
+}
