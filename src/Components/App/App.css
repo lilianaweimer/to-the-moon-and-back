@@ -1,11 +1,18 @@
+.whole-page {
+  width: 100vw;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
   width: 100vw;
   height: 100vh;
-  /* background-color: aqua; */
-  background-image: url('../Images/space-background.jpg');
+  /* background-image: url('../Images/space-background.jpg'); */
 }
 
 .home-page {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: black; */
 }
 
