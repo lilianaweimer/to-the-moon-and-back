@@ -4,7 +4,7 @@ import "./Form.css"
 const Form = () => {
 
   const [days, setDays] = useState("");
-  const [travelerCount, setTravelerCount] = useState(0);
+  const [travelerCount, setTravelerCount] = useState("");
   const [travelers, setTravelers] = useState([]);
 
   const showTravelerForms = () => {
@@ -15,13 +15,14 @@ const Form = () => {
     return dumpster.map(dumpsterNum => {
       return (
         <div key={dumpsterNum}>
-          <p>Traveler {dumpsterNum + 1}</p>
+          <h4>Traveler {dumpsterNum + 1}</h4>
           <label>
             Name:
             <input 
               type="text" 
               name="name"
               placeholder="Name"
+              required
               onChange={() => {}}
             />
           </label>
@@ -32,6 +33,7 @@ const Form = () => {
               type="text" 
               name="weight"
               placeholder="Weight (lbs)"
+              required
               onChange={() => {}}
             />
           </label>
@@ -42,9 +44,11 @@ const Form = () => {
               type="text"
               name="age"
               placeholder="Age"
+              required
               onChange={() => {}}
             />
           </label>
+          <hr />
         </div>
       )
     })
@@ -62,6 +66,7 @@ const Form = () => {
             type="number" 
             placeholder="Earth Days" 
             name="days"
+            required
             onChange={event => setDays(event.target.value)}
           />
         </label>
@@ -73,9 +78,10 @@ const Form = () => {
             alt="Number of Travelers" 
             name="traveler-count" 
             className="dropdown"
+            required
             onChange={event => setTravelerCount(event.target.value)}
           >
-            <option value="0">0</option>
+            <option value={null}></option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -85,7 +91,7 @@ const Form = () => {
         </label>
         {showTravelerForms()}
         <br />
-        <button disabled={true}>Start My Voyage!</button>
+        <button type='submit' className='form-button'>Start My Voyage!</button>
       </form>
     </fieldset>
   )
