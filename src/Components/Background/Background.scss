@@ -2,30 +2,34 @@
 
 // n is number of stars required
 
-@function multiple-box-shadow-yellow ($n) {
-  $value: '#{random(2000)}px #{random(2000)}px #FFCC00';
+@function multiple-box-shadow-yellow($n) {
+  $value: "#{random(2000)}px #{random(2000)}px #FFCC00";
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFCC00';
+    $value: "#{$value} , #{random(2000)}px #{random(2000)}px #FFCC00";
   }
-  @return unquote($value)
+  @return unquote($value);
 }
 
-@function multiple-box-shadow-white ($n) {
-  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+@function multiple-box-shadow-white($n) {
+  $value: "#{random(2000)}px #{random(2000)}px #FFF";
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+    $value: "#{$value} , #{random(2000)}px #{random(2000)}px #FFF";
   }
-  @return unquote($value)
+  @return unquote($value);
 }
 
-$shadows-small:  multiple-box-shadow-white(700);
+$shadows-small: multiple-box-shadow-white(700);
 $shadows-medium: multiple-box-shadow-yellow(200);
 $shadows-big: multiple-box-shadow-white(100);
 
 html {
+  position: relative;
+  top: 0;
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-  overflow: hidden;
+  width: 100%;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  background-repeat: none;
+  overflow: scroll;
 }
 
 #stars {
@@ -37,11 +41,11 @@ html {
   &:after {
     content: " ";
     position: absolute;
-    top: 2000px;
+    top: 75vh;
     width: 1px;
     height: 1px;
     background: transparent;
-    box-shadow: $shadows-small
+    box-shadow: $shadows-small;
   }
 }
 
@@ -54,11 +58,11 @@ html {
   &:after {
     content: " ";
     position: absolute;
-    top: 2000px;
+    top: 75vh;
     width: 2px;
     height: 2px;
     background: transparent;
-    box-shadow: $shadows-medium
+    box-shadow: $shadows-medium;
   }
 }
 
@@ -71,19 +75,19 @@ html {
   &:after {
     content: " ";
     position: absolute;
-    top: 2000px;
-    width: 3px;
+    top: 100vh;
+    top: 75vh;
     height: 3px;
     background: transparent;
-    box-shadow: $shadows-big
+    box-shadow: $shadows-big;
   }
 }
 
 @keyframes animStar {
-  from{
+  from {
     transform: translateY(0px);
   }
-  to{
-    transform: translateY(-2000px);
+  to {
+    transform: translateY(-150vh);
   }
 }
