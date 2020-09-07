@@ -1,0 +1,30 @@
+.form-container {
+  text-align: left;
+  border: solid 2px #ADB8EB;
+  color: white;
+  display: flex;
+  margin-left: 24%;
+  margin-top: 5%;
+  margin-bottom: 9%;
+  width: 50%;
+  padding: 3%;
+  background-color: #050517;
+  border-radius: 6px;
+  /* align-items: space-around; */
+  flex-flow: column nowrap;
+}
+
+.form-container legend {
+ text-align: center;
+}
+
+.form-container select, input {
+  margin: 2%;
+  cursor: pointer;
+}
+
+.form-button {
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
