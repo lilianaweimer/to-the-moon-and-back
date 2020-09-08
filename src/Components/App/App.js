@@ -23,7 +23,7 @@ function App() {
         />
         <Route 
           exact path="/" 
-          render={() => (      
+          render={() => (
             <div className="home-page">
               <Weather />
               <Destinations />
