@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./DestinationCard.css";
 
 function DestinationCard() {
@@ -9,10 +9,11 @@ function DestinationCard() {
         <img
           className="destination-icon"
           src={require("../../Images/moon.svg")}
+          alt='small icon of the moon'
         />
       </section>
       <p>Destination Image</p>
-      <button className="plan-voyage-btn" role="button">
+      <button className="plan-voyage-btn">
         Plan My Voyage!
       </button>
     </div>
