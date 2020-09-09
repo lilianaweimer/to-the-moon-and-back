@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from 'react-router-dom';
 
 import "./App.css";
@@ -7,8 +7,21 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from '../Form/Form';
+import celestialBodies from "../../Mock-Data.json";
 
 function App() {
+
+  const [allCelestialBodies, setAllCelestialBodies] = useState([]);
+
+  const getAllCelestialBodies = () => {
+    Promise.resolve(celestialBodies)
+    .then(data => setAllCelestialBodies(data.celestialBodies))
+  }
+
+  useEffect(() => {
+    getAllCelestialBodies()
+  }, [])
+
   return (
     <div className="App">
       <div className="background">
@@ -26,7 +39,7 @@ function App() {
           render={() => (
             <div className="home-page">
               <Weather />
-              <Destinations />
+              <Destinations allCelestialBodies={allCelestialBodies}/>
             </div>
           )} 
         />

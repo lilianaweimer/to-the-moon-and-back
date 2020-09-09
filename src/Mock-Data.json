@@ -3,55 +3,55 @@
     {
       "id": 1,
       "name": "Sun",
-      "type": "Star",
+      "type": "star",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkKZ8nFulIMZAK8MKI8kzvsfGnaa3YlqMMRA&usqp=CAU"
     },
     {
       "id": 2,
       "name": "Moon",
-      "type": "Moon",
+      "type": "moon",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSA0QNeR2YGmCWvRtZqsYN9Ft44WxYJEArbtw&usqp=CAU"
     },
     {
       "id": 3,
       "name": "Mercury",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://cdn.mos.cms.futurecdn.net/GA4grWEsUYUqH58cDbRBw8.jpg"
     },
     {
       "id": 4,
       "name": "Venus",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://astronomy.com/-/media/Images/News%20and%20Observing/News/2020/04/Venus1__1_.jpg?mw=600"
     },
     {
       "id": 5,
       "name": "Mars",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSY5oCXASYgKXI1MFGmRbgs9WmSnULsnOe_fg&usqp=CAU"
     },
     {
       "id": 6,
       "name": "Jupiter",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://3.bp.blogspot.com/-JzB2ruOjBOs/WJy8tR_tJSI/AAAAAAAABdA/26gANOQ4Y4IZyMnEGS2L8X-dvhVhGL0ZQCLcB/s1600/jupiter_HD.jpg"
     },
     {
       "id": 7,
       "name": "Saturn",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://solarsystem.nasa.gov/system/resources/list_images/2490_hubblesaturn_320.png"
     },
     {
       "id": 8,
       "name": "Uranus",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://i2-prod.mirror.co.uk/science/article11370299.ece/ALTERNATES/s615/1_Uranus.jpg"
     },
     {
       "id": 9,
       "name": "Neptune",
-      "type": "Planet",
+      "type": "planet",
       "image": "https://media.wired.com/photos/5d04045bde1abfe4e801d054/191:100/w_2292,h_1200,c_limit/Science-Neptune-FA-PIA01492_orig.jpg"
     }
   ]
