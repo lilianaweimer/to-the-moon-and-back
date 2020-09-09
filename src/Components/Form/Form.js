@@ -5,9 +5,10 @@ const Form = () => {
 
   const [days, setDays] = useState("");
   const [travelerCount, setTravelerCount] = useState("");
-  const [travelers, setTravelers] = useState([]);
+  // const [travelers, setTravelers] = useState([]);
 
   const showTravelerForms = () => {
+    console.log(days)
     let dumpster = []
     for (let i = 0; i < travelerCount; i++) {
         dumpster.push(i)

@@ -1,4 +1,4 @@
-import React, { useState }  from 'react';
+import React  from 'react';
 import './Destinations.css';
 import Slider from "react-slick";
 import DestinationCard from '../DestinationCard/DestinationCard';

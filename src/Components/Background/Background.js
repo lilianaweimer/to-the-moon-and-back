@@ -1,10 +1,7 @@
-import React, { useState, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import "./Background.scss";
 
 class Background extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
