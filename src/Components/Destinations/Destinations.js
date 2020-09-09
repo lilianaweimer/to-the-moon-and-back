@@ -5,9 +5,8 @@ import DestinationCard from '../DestinationCard/DestinationCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function Destinations() {
+function Destinations( { allCelestialBodies } ) {
   const settings = {
-    // className: "center",
     centerMode: true,
     centerPadding: '0',
     dots: true,
@@ -17,13 +16,23 @@ function Destinations() {
     speed: 500,
   };
 
+  const getDestinations = () => {
+    return allCelestialBodies.map(body => {
+      return (
+        <DestinationCard 
+        id={body.id}
+        name={body.name}
+        type={body.type}
+        image={body.image}
+      />
+      )  
+    })
+  }
+
   return (
     <div className='destinations'>
       <Slider  {...settings}>
-        <DestinationCard />
-        <DestinationCard />
-        <DestinationCard />
-        <DestinationCard />
+       {getDestinations()}
       </Slider>
     </div>
     
