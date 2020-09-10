@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./DestinationCard.css";
 
 function DestinationCard({ id, name, type, image }) {
@@ -19,9 +20,9 @@ function DestinationCard({ id, name, type, image }) {
       <div className="destination-image-container">
         <img className="destination-img" src={image} alt={`${name}`} />
       </div>
-      <button className="plan-voyage-btn">
-        Plan My Voyage!
-      </button>
+      <Link to={"voyage-planner"}>
+        <button className="plan-voyage-btn">Plan My Voyage!</button>
+      </Link>
     </div>
   );
 }
