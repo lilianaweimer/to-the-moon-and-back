@@ -377,6 +377,25 @@ $content_width: 45%;
   background: #3d1566;
 
   .card_logo {
+    background: #ADB8EB;
     border-top: 5px solid #3d1566;
   }
+}
+
+.traveler-info {
+  margin: 1.5%;
+  cursor: pointer;
+  height: 1.8em;
+  font-size: 1em;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  outline: none;
+  border-bottom: solid 1.5px white;
+  background-color: #3d1566;
+  color: white
+}
+
+.traveler-info input:focus {
+  color: white !important;
 }

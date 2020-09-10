@@ -58,6 +58,8 @@ const handleChange = (value, travelerNum, property) => {
             <label>
               Name:
               <input
+                className="traveler-info"
+                autocomplete="off"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -71,6 +73,8 @@ const handleChange = (value, travelerNum, property) => {
             <label>
               Weight (lbs):
               <input
+                className="traveler-info"
+                autocomplete="off"
                 min="0"
                 type="number"
                 name="weight"
@@ -85,6 +89,8 @@ const handleChange = (value, travelerNum, property) => {
             <label>
               Age:
               <input
+                className="traveler-info"
+                autocomplete="off"
                 min="0"
                 type="number"
                 name="age"

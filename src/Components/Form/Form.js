@@ -78,12 +78,13 @@ const Form = () => {
 
   return (
     <fieldset className="form-container">
-      <legend>Voyage Planner:</legend>
+      <legend>Voyage Planner</legend>
       <form className="booking-form">
-        <label>
+        <label className="label">
           How many Earth days do you want to spend at [destination]?
           <br />
           <input
+            className="earth-days-input"
             min="1"
             type="number"
             placeholder="Earth Days"
@@ -95,7 +96,7 @@ const Form = () => {
           />
         </label>
         <br />
-        <label>
+        <label className="label">
           How many people will be on your voyage?
           <br />
           <select
