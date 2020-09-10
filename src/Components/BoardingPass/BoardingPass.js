@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./BoardingPass.scss";
 import Rocket from "../../Images/rocket.svg";
 import PurpleRocket from "../../Images/rocket_purple.svg";
@@ -9,8 +9,12 @@ var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-const BoardingPass = ({ travelerNumber }) => {
+const BoardingPass = ({ travelerNumber, storeTravelers }) => {
   console.log("travelerNumber", travelerNumber);
+
+const handleChange = (value, travelerNum, property) => {
+    storeTravelers(value, travelerNum, property);
+  }
 
   return (
     <section className="cards_wrapper">
@@ -58,29 +62,37 @@ const BoardingPass = ({ travelerNumber }) => {
                 name="name"
                 placeholder="Name"
                 required
-                onChange={() => {}}
+                onChange={(event) => 
+                  handleChange(event.target.value, travelerNumber, event.target.name)
+                }
               />
             </label>
             <br />
             <label>
               Weight (lbs):
               <input
-                type="text"
+                min="0"
+                type="number"
                 name="weight"
                 placeholder="Weight (lbs)"
                 required
-                onChange={() => {}}
+                onChange={(event) => 
+                  handleChange(event.target.value, travelerNumber, event.target.name)
+                }
               />
             </label>
             <br />
             <label>
               Age:
               <input
-                type="text"
+                min="0"
+                type="number"
                 name="age"
                 placeholder="Age"
                 required
-                onChange={() => {}}
+                onChange={(event) => 
+                  handleChange(event.target.value, travelerNumber, event.target.name)
+                }
               />
             </label>
           </div>

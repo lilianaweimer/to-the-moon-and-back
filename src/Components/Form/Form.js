@@ -6,14 +6,48 @@ const Form = () => {
   const [state, setState] = useState({
     numberOfDays: 0,
     numberOfTravelers: 0,
-    travelers: [],
   });
 
-  // const [travelers, setTravelers] = useState([]);
+  const [travelers, setTravelers] = useState([
+      {
+        id: 1,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 2,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 3,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 4,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 5,
+        name: '',
+        weight: 0,
+        age: 0
+      }
+  ])
+
+  const storeTravelers = (value, index, property) => {
+    let newTravelersArry = [...travelers];
+    newTravelersArry[index][property] = value;
+    setTravelers(newTravelersArry);
+  }
 
   const showTravelerForms = () => {
-    console.log("state.numberOfTravelers", state.numberOfTravelers);
-
     let numOfTravelers = [];
     for (let i = 0; i < state.numberOfTravelers; i++) {
       numOfTravelers.push(i);
@@ -22,6 +56,7 @@ const Form = () => {
       return (
         <BoardingPass
           travelerNumber={numOfTravelers.indexOf(currentTravelerNum)}
+          storeTravelers={storeTravelers}
         />
       );
     });
@@ -49,6 +84,7 @@ const Form = () => {
           How many Earth days do you want to spend at [destination]?
           <br />
           <input
+            min="1"
             type="number"
             placeholder="Earth Days"
             name="days"
