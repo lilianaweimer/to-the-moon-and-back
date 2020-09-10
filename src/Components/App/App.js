@@ -7,20 +7,23 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
-import celestialBodies from "../../Mock-Data.json";
+// import celestialBodies from "../../Mock-Data.json";
+import { getAllCelestialBodies } from "../../ApiCalls.js";
 import BoardingPass from "../BoardingPass/BoardingPass";
 
 function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
 
-  const getAllCelestialBodies = () => {
-    Promise.resolve(celestialBodies).then((data) =>
-      setAllCelestialBodies(data.celestialBodies)
-    );
+  const getCelestialBodies = async () => {
+    const celestialBodies = await getAllCelestialBodies();
+    setAllCelestialBodies(celestialBodies);
+    // Promise.resolve(celestialBodies).then((data) =>
+    //   setAllCelestialBodies(data.celestialBodies)
+    // );
   };
 
   useEffect(() => {
-    getAllCelestialBodies();
+    getCelestialBodies();
   }, []);
 
   return (

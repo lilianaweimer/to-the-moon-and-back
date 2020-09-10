@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./BoardingPass.scss";
 import Rocket from "../../Images/rocket.svg";
 import PurpleRocket from "../../Images/rocket_purple.svg";

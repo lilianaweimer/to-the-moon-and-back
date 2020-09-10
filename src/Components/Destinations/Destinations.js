@@ -22,7 +22,7 @@ function Destinations( { allCelestialBodies } ) {
         <DestinationCard 
         id={body.id}
         name={body.name}
-        type={body.type}
+        type={body.celestial_body_type}
         image={body.image}
       />
       )  
