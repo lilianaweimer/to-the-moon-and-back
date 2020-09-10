@@ -20,7 +20,7 @@ function DestinationCard({ id, name, type, image }) {
       <div className="destination-image-container">
         <img className="destination-img" src={image} alt={`${name}`} />
       </div>
-      <Link to={`voyage-planner/${id}`}>
+      <Link to={`voyage-planner-${id}`}>
         <button className="plan-voyage-btn">Plan My Voyage!</button>
       </Link>
     </div>
