@@ -30,6 +30,14 @@ $content_width: 45%;
   font-family: "Montserrat", sans-serif;
 }
 
+.boarding-pass-image {
+  background-color: black;
+  height: 14em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cards_wrapper {
   text-align: center;
   padding-top: 20px;
@@ -53,13 +61,12 @@ $content_width: 45%;
     position: absolute;
     width: 320px;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     opacity: 0.1;
-    background-image: url(https://puu.sh/rE78K/33424202f7.svg);
-    background-size: 130px;
-    background-repeat: repeat-y;
-    background-position: 0px 0px;
+    background-image: url("../../Images/shooting_stars.svg");
+    background-size: 95px;
     background-repeat: repeat-x;
+    background-position: 0px 0px;
     animation: animatedBackground 40s linear infinite;
     @keyframes animatedBackground {
       from {
@@ -76,9 +83,11 @@ $content_width: 45%;
     border-radius: 20px 20px 0 0;
 
     img.qatar {
-      margin: -50px;
-      text-align: center;
-      width: 70%;
+      // margin: -50px;
+      // text-align: center;
+      height: 4.5em;
+      transform: rotate(45deg);
+      padding: 6em, 0, 14em, 0;
     }
     img.tigerair {
       margin-top: 10px;
