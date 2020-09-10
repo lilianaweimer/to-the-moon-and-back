@@ -10,23 +10,24 @@ $content_width: 45%;
   color: #ccc;
   font-weight: 200;
   font-size: 2.1em;
+  font-family: "Montserrat", sans-serif;
   margin: 0px;
 }
 
 .boardingPassH2 {
   color: #ccc;
-  opacity: 0.5;
   font-weight: 100;
   font-size: 0.9em;
   margin: 0px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .boardingPassH3 {
   color: #ccc;
-  opacity: 0.8;
   font-weight: 100;
   font-size: 0.9em;
   margin: 0px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .cards_wrapper {
@@ -206,6 +207,10 @@ $content_width: 45%;
 
     .card {
       &_seating {
+        font-family: "Montserrat", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: $content_width;
         margin: 30px auto;
         display: flex;
@@ -227,6 +232,10 @@ $content_width: 45%;
             text-align: right;
           }
         }
+      }
+
+      .card_seating :input {
+        font-family: "Montserrat", sans-serif;
       }
 
       &_details {
