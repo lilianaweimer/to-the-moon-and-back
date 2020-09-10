@@ -3,57 +3,42 @@ import BoardingPass from "../BoardingPass/BoardingPass";
 import "./Form.css";
 
 const Form = () => {
-  const [days, setDays] = useState("");
-  const [travelerCount, setTravelerCount] = useState("");
+  const [state, setState] = useState({
+    numberOfDays: 0,
+    numberOfTravelers: 0,
+    travelers: [],
+  });
+
   // const [travelers, setTravelers] = useState([]);
 
   const showTravelerForms = () => {
-    console.log(days);
+    console.log("state.numberOfTravelers", state.numberOfTravelers);
+
     let numOfTravelers = [];
-    for (let i = 0; i < travelerCount; i++) {
+    for (let i = 0; i < state.numberOfTravelers; i++) {
       numOfTravelers.push(i);
     }
     return numOfTravelers.map((currentTravelerNum) => {
-      return <BoardingPass />;
-      // return (
-      //   <div key={dumpsterNum}>
-      //     <h4>Traveler {dumpsterNum + 1}</h4>
-      //     <label>
-      //       Name:
-      //       <input
-      //         type="text"
-      //         name="name"
-      //         placeholder="Name"
-      //         required
-      //         onChange={() => {}}
-      //       />
-      //     </label>
-      //     <br />
-      //     <label>
-      //       Weight (lbs):
-      //       <input
-      //         type="text"
-      //         name="weight"
-      //         placeholder="Weight (lbs)"
-      //         required
-      //         onChange={() => {}}
-      //       />
-      //     </label>
-      //     <br />
-      //     <label>
-      //       Age:
-      //       <input
-      //         type="text"
-      //         name="age"
-      //         placeholder="Age"
-      //         required
-      //         onChange={() => {}}
-      //       />
-      //     </label>
-      //     <hr />
-      //   </div>
-      // );
+      return (
+        <BoardingPass
+          travelerNumber={numOfTravelers.indexOf(currentTravelerNum)}
+        />
+      );
     });
+  };
+
+  const verifyUserInput = (value, stateProperty) => {
+    if (value) {
+      setState((state) => ({
+        ...state,
+        [stateProperty]: value,
+      }));
+    } else {
+      setState((state) => ({
+        ...state,
+        [stateProperty]: 0,
+      }));
+    }
   };
 
   return (
@@ -68,7 +53,9 @@ const Form = () => {
             placeholder="Earth Days"
             name="days"
             required
-            onChange={(event) => setDays(event.target.value)}
+            onChange={(event) =>
+              verifyUserInput(event.target.value, "numberOfDays")
+            }
           />
         </label>
         <br />
@@ -80,14 +67,16 @@ const Form = () => {
             name="traveler-count"
             className="dropdown"
             required
-            onChange={(event) => setTravelerCount(event.target.value)}
+            onChange={(event) =>
+              verifyUserInput(event.target.value, "numberOfTravelers")
+            }
           >
             <option value={null}></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
           </select>
         </label>
         <div className="boarding-pass-container">{showTravelerForms()}</div>
