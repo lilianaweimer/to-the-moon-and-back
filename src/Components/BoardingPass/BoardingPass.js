@@ -8,7 +8,9 @@ var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-const BoardingPass = () => {
+const BoardingPass = ({ travelerNumber }) => {
+  console.log("travelerNumber", travelerNumber);
+
   return (
     <section className="cards_wrapper">
       <div className="card qr-theme">
@@ -48,14 +50,39 @@ const BoardingPass = () => {
         </div>
         <div className="card_flight_details">
           <div className="card_seating">
-            <div className="seating_passenger">
-              <h2 className="boardingPassH2">Passenger</h2>
-              <h3 className="boardingPassH3">Deven Blackburn</h3>
-            </div>
-            <div className="seating_passenger_dos">
-              <h2 className="boardingPassH2">Passenger</h2>
-              <h3 className="boardingPassH3">Leonardo Restrepo</h3>
-            </div>
+            <h4>Traveler {Number(travelerNumber) + 1}</h4>
+            <label>
+              Name:
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                onChange={() => {}}
+              />
+            </label>
+            <br />
+            <label>
+              Weight (lbs):
+              <input
+                type="text"
+                name="weight"
+                placeholder="Weight (lbs)"
+                required
+                onChange={() => {}}
+              />
+            </label>
+            <br />
+            <label>
+              Age:
+              <input
+                type="text"
+                name="age"
+                placeholder="Age"
+                required
+                onChange={() => {}}
+              />
+            </label>
           </div>
           <div className="card_details">
             <div className="details_flight">
