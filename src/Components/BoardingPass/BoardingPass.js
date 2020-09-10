@@ -1,6 +1,7 @@
 import React from "react";
 import "./BoardingPass.scss";
 import Rocket from "../../Images/rocket.svg";
+import PurpleRocket from "../../Images/rocket_purple.svg";
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, "0");
@@ -16,12 +17,11 @@ const BoardingPass = ({ travelerNumber }) => {
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
-            <img
-              src="http://logok.org/wp-content/uploads/2015/03/Qatar-Airways-logo-logotype-1024x768.png"
-              className="qatar"
-            />
+            <img src={PurpleRocket} className="qatar" />
           </div>
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/281813/SIN.jpg" />
+          <div className="boarding-pass-image">
+            <img src="https://cdn.mos.cms.futurecdn.net/GA4grWEsUYUqH58cDbRBw8.jpg" />
+          </div>
           <div className="card_divider">
             <div className="divider_left divider_hole"></div>
             <div className="divider"></div>
