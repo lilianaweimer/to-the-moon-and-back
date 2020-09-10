@@ -1,4 +1,10 @@
-$content_width: 85%;
+$content_width: 45%;
+
+.boarding-pass-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 
 .boardingPassH1 {
   color: #ccc;
@@ -26,9 +32,8 @@ $content_width: 85%;
 .cards_wrapper {
   text-align: center;
   padding-top: 20px;
-  width: 65%;
-  height: 85%;
-  background-color: #151f29;
+  width: 35%;
+  // height: 85%;
 }
 
 .card {
@@ -134,10 +139,9 @@ $content_width: 85%;
       }
 
       &.trip_icon {
-        width: 30%;
+        width: 45%;
 
         img {
-          padding-top: 20px;
           opacity: 1;
           width: 25px;
         }
@@ -177,7 +181,7 @@ $content_width: 85%;
       height: 25px;
       width: 25px;
       border-radius: 100%;
-      background: black;
+      background: #050518;
       // box-shadow: inset 0 3px 10px 0 rgba(0,0,0,.4);
     }
 
@@ -350,26 +354,10 @@ $content_width: 85%;
   }
 }
 
-.ta-theme {
-  background: #b26a07;
-
-  .card_logo {
-    border-top: 5px solid #f69e25;
-  }
-}
-
-.aa-theme {
-  background: #961a14;
-
-  .card_logo {
-    border-top: 5px solid #da251d;
-  }
-}
-
 .qr-theme {
-  background: #72274d;
+  background: #3d1566;
 
   .card_logo {
-    border-top: 5px solid #72274d;
+    border-top: 5px solid #3d1566;
   }
 }

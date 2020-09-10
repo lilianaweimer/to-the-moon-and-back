@@ -31,7 +31,7 @@ function App() {
       <Header />
 
       <Switch>
-        <Route path="/voyage-planner" render={() => <BoardingPass />} />
+        <Route path="/voyage-planner" render={() => <Form />} />
         <Route
           exact
           path="/"
