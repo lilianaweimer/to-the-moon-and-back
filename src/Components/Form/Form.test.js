@@ -62,6 +62,5 @@ describe("Form", () => {
     fireEvent.change(getByTestId("select"), { target: {value: 6}});
 
     expect(queryByText("Boarding Pass")).not.toBeInTheDocument();
-
     });
 });
