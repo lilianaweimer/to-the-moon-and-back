@@ -6,10 +6,6 @@ jest.mock("../../apiCalls");
 import { getAllCelestialBodies } from "../../apiCalls";
 import DestinationCard from '../DestinationCard/DestinationCard';
 
-test('true???', () => {
-  expect(true).toEqual(true)
-});
-
 describe("Destinations", () => {
   let mockCelestialBodies;
   let mockSingleDestination;
@@ -43,18 +39,6 @@ describe("Destinations", () => {
         "planet_day": 243.02,
         "planet_year": 224.7
     },
-    ]
-
-    mockSingleDestination = [
-      {
-        "celestial_body_type": "Star",
-        "gravity": 27.95,
-        "id": 9,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkKZ8nFulIMZAK8MKI8kzvsfGnaa3YlqMMRA&usqp=CAU",
-        "name": "Sun",
-        "planet_day": 25.38,
-        "planet_year": null
-      }
     ]
   });
 
