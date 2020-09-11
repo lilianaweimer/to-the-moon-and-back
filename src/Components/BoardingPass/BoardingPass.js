@@ -17,7 +17,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
   }
 
   return (
-    <section className="cards_wrapper">
+    <section className="cards_wrapper" key={travelerNumber}>
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
@@ -59,7 +59,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
               Name:
               <input
                 className="traveler-info"
-                autocomplete="off"
+                autoComplete="off"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -74,7 +74,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
               Weight (lbs):
               <input
                 className="traveler-info"
-                autocomplete="off"
+                autoComplete="off"
                 min="0"
                 type="number"
                 name="weight"
@@ -90,7 +90,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
               Age:
               <input
                 className="traveler-info"
-                autocomplete="off"
+                autoComplete="off"
                 min="0"
                 type="number"
                 name="age"
