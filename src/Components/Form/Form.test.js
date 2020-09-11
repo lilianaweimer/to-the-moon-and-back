@@ -50,11 +50,18 @@ describe("Form", () => {
     fireEvent.change(getByTestId("select"), { target: {value: 2}});
 
     expect(getAllByText("Boarding Pass").length).toBe(2);
-
-
   });
 
-  // it("Should only be able to select up to 5 people to go on the voyage", () => {
+  it("Should only be able to select up to 5 people to go on the voyage", () => {
+    const { queryByText, getByTestId } = render(
+      <MemoryRouter>
+        <Form selectedDestination={mockSelectedDestination} />
+      </MemoryRouter>
+    );
 
-  // })
+    fireEvent.change(getByTestId("select"), { target: {value: 6}});
+
+    expect(queryByText("Boarding Pass")).not.toBeInTheDocument();
+
+    });
 });
