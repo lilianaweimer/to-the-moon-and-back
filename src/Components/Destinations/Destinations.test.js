@@ -11,7 +11,7 @@ describe("Destinations", () => {
   beforeEach(() => {
     mockCelestialBodies = [
       {
-        "celestial_body_type": "Star",
+        "type": "Star",
         "gravity": 27.95,
         "id": 9,
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkKZ8nFulIMZAK8MKI8kzvsfGnaa3YlqMMRA&usqp=CAU",
@@ -20,7 +20,7 @@ describe("Destinations", () => {
         "planet_year": null
       },
       {
-        "celestial_body_type": "Planet",
+        "type": "Planet",
         "gravity": 0.37,
         "id": 1,
         "image": "https://cdn.mos.cms.futurecdn.net/GA4grWEsUYUqH58cDbRBw8.jpg",
@@ -29,7 +29,7 @@ describe("Destinations", () => {
         "planet_year": 87.96
     },
     {
-        "celestial_body_type": "Planet",
+        "type": "Planet",
         "gravity": 0.9,
         "id": 2,
         "image": "https://astronomy.com/-/media/Images/News%20and%20Observing/News/2020/04/Venus1__1_.jpg?mw=600",
