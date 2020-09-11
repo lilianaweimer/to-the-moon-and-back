@@ -21,10 +21,10 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
-            <img src={PurpleRocket} className="qatar" />
+            <img src={PurpleRocket} className="qatar" alt="rocket"/>
           </div>
           <div className="boarding-pass-image">
-            <img src={ selectedDestination.image } />
+            <img src={ selectedDestination.image } alt={ selectedDestination.name }/>
           </div>
           <div className="card_divider">
             <div className="divider_left divider_hole"></div>
@@ -40,7 +40,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
             <h2 className="boardingPassH2">Earth</h2>
           </div>
           <div className="trip_icon">
-            <img src={Rocket} />
+            <img src={Rocket} alt="rocket"/>
           </div>
           <div className="trip_to">
             <h1 className="boardingPassH1">{ selectedDestination.name.charAt(0) }</h1>
