@@ -73,25 +73,4 @@ describe("Destinations", () => {
     expect(mercury).toBeInTheDocument();
     expect(venus).toBeInTheDocument();
   });
-
-  it.skip("Should be able to select a destination", async () => {
-    const mockSelectDestination = jest.fn();
-
-    const { getByText, getAllByText } = render(
-      <MemoryRouter>
-        <Destinations 
-          allCelestialBodies={ mockSingleDestination }
-          selectDestination={ mockSelectDestination }
-        />
-      </MemoryRouter>
-    );
-    
-    const sun = await waitFor(() => getByText("Sun"));
-    const button = await waitFor(() => getByText("Plan My Voyage!"));
-
-    fireEvent.click(button);
-
-    expect(mockSelectDestination).toHaveBeenCalledTimes(1);
-
-  });
 })
