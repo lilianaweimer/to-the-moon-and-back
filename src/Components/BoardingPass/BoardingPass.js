@@ -9,8 +9,12 @@ var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-const BoardingPass = ({ travelerNumber }) => {
+const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) => {
   console.log("travelerNumber", travelerNumber);
+
+  const handleChange = (value, travelerNum, property) => {
+    storeTravelers(value, travelerNum, property);
+  }
 
   return (
     <section className="cards_wrapper">
@@ -20,7 +24,7 @@ const BoardingPass = ({ travelerNumber }) => {
             <img src={PurpleRocket} className="qatar" />
           </div>
           <div className="boarding-pass-image">
-            <img src="https://cdn.mos.cms.futurecdn.net/GA4grWEsUYUqH58cDbRBw8.jpg" />
+            <img src={ selectedDestination.image } />
           </div>
           <div className="card_divider">
             <div className="divider_left divider_hole"></div>
@@ -39,8 +43,8 @@ const BoardingPass = ({ travelerNumber }) => {
             <img src={Rocket} />
           </div>
           <div className="trip_to">
-            <h1 className="boardingPassH1">SIN</h1>
-            <h2 className="boardingPassH2">Singapore</h2>
+            <h1 className="boardingPassH1">{ selectedDestination.name.charAt(0) }</h1>
+            <h2 className="boardingPassH2">{ selectedDestination.name }</h2>
           </div>
         </div>
         <div className="card_divider">
@@ -54,33 +58,47 @@ const BoardingPass = ({ travelerNumber }) => {
             <label>
               Name:
               <input
+                className="traveler-info"
+                autocomplete="off"
                 type="text"
                 name="name"
                 placeholder="Name"
                 required
-                onChange={() => {}}
+                onChange={(event) => 
+                  handleChange(event.target.value, travelerNumber, event.target.name)
+                }
               />
             </label>
             <br />
             <label>
               Weight (lbs):
               <input
-                type="text"
+                className="traveler-info"
+                autocomplete="off"
+                min="0"
+                type="number"
                 name="weight"
                 placeholder="Weight (lbs)"
                 required
-                onChange={() => {}}
+                onChange={(event) => 
+                  handleChange(event.target.value, travelerNumber, event.target.name)
+                }
               />
             </label>
             <br />
             <label>
               Age:
               <input
-                type="text"
+                className="traveler-info"
+                autocomplete="off"
+                min="0"
+                type="number"
                 name="age"
                 placeholder="Age"
                 required
-                onChange={() => {}}
+                onChange={(event) => 
+                  handleChange(event.target.value, travelerNumber, event.target.name)
+                }
               />
             </label>
           </div>

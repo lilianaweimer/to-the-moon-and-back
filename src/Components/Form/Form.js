@@ -2,18 +2,56 @@ import React, { useState } from "react";
 import BoardingPass from "../BoardingPass/BoardingPass";
 import "./Form.css";
 
-const Form = () => {
+const Form = ({ selectedDestination, setPassengersToState }) => {
   const [state, setState] = useState({
     numberOfDays: 0,
     numberOfTravelers: 0,
-    travelers: [],
   });
 
-  // const [travelers, setTravelers] = useState([]);
+  const [travelers, setTravelers] = useState([
+      {
+        id: 1,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 2,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 3,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 4,
+        name: '',
+        weight: 0,
+        age: 0
+      },
+      {
+        id: 5,
+        name: '',
+        weight: 0,
+        age: 0
+      }
+  ])
+
+  const getValidPassengersFromState = () => {
+    return travelers.filter(trav => trav.name)
+  }
+
+  const storeTravelers = (value, index, property) => {
+    let newTravelersArry = [...travelers];
+    newTravelersArry[index][property] = value;
+    setTravelers(newTravelersArry);
+  }
 
   const showTravelerForms = () => {
-    console.log("state.numberOfTravelers", state.numberOfTravelers);
-
     let numOfTravelers = [];
     for (let i = 0; i < state.numberOfTravelers; i++) {
       numOfTravelers.push(i);
@@ -21,7 +59,9 @@ const Form = () => {
     return numOfTravelers.map((currentTravelerNum) => {
       return (
         <BoardingPass
-          travelerNumber={numOfTravelers.indexOf(currentTravelerNum)}
+          travelerNumber={ numOfTravelers.indexOf(currentTravelerNum) }
+          storeTravelers={ storeTravelers }
+          selectedDestination={ selectedDestination }
         />
       );
     });
@@ -43,12 +83,14 @@ const Form = () => {
 
   return (
     <fieldset className="form-container">
-      <legend>Voyage Planner:</legend>
+      <legend>Voyage Planner</legend>
       <form className="booking-form">
-        <label>
-          How many Earth days do you want to spend at [destination]?
+        <label className="label">
+          How many Earth days do you want to spend at your destination, { selectedDestination.name }?
           <br />
           <input
+            className="earth-days-input"
+            min="1"
             type="number"
             placeholder="Earth Days"
             name="days"
@@ -59,7 +101,7 @@ const Form = () => {
           />
         </label>
         <br />
-        <label>
+        <label className="label">
           How many people will be on your voyage?
           <br />
           <select
@@ -81,7 +123,7 @@ const Form = () => {
         </label>
         <div className="boarding-pass-container">{showTravelerForms()}</div>
         <br />
-        <button type="submit" className="form-button">
+        <button type="submit" className="form-button" onClick={ (event) => setPassengersToState(event, getValidPassengersFromState()) }>
           Start My Voyage!
         </button>
       </form>

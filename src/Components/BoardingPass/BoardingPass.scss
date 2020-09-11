@@ -32,10 +32,12 @@ $content_width: 45%;
 
 .boarding-pass-image {
   background-color: black;
-  height: 14em;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .cards_wrapper {
@@ -60,9 +62,10 @@ $content_width: 45%;
   .inner {
     position: absolute;
     width: 320px;
-    height: 100%;
+    height: 15%;
     z-index: 0;
     opacity: 0.1;
+    margin-top: 1.5em;
     background-image: url("../../Images/shooting_stars.svg");
     background-size: 95px;
     background-repeat: repeat-x;
@@ -140,7 +143,7 @@ $content_width: 45%;
       }
 
       &.trip_from {
-        text-align: left;
+        text-align: center;
         width: 35%;
 
         h2 {
@@ -158,7 +161,7 @@ $content_width: 45%;
       }
 
       &.trip_to {
-        text-align: right;
+        text-align: center;
         width: 35%;
 
         h2 {
@@ -376,6 +379,25 @@ $content_width: 45%;
   background: #3d1566;
 
   .card_logo {
+    background: #ADB8EB;
     border-top: 5px solid #3d1566;
   }
+}
+
+.traveler-info {
+  margin: 1.5%;
+  cursor: pointer;
+  height: 1.8em;
+  font-size: 1em;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  outline: none;
+  border-bottom: solid 1.5px white;
+  background-color: #3d1566;
+  color: white
+}
+
+.traveler-info input:focus {
+  color: white !important;
 }
