@@ -2,7 +2,6 @@ import React from 'react';
 import { render, waitFor, fireEvent } from '@testing-library/react';
 import Destinations from './Destinations';
 import { MemoryRouter } from 'react-router-dom';
-jest.mock("../../apiCalls");
 import { getAllCelestialBodies } from "../../apiCalls";
 import DestinationCard from '../DestinationCard/DestinationCard';
 

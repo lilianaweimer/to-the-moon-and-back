@@ -2,7 +2,6 @@ import React from "react";
 import { render, waitFor, fireEvent, getAllByPlaceholderText } from "@testing-library/react";
 import BoardingPass from "./BoardingPass";
 import { MemoryRouter } from "react-router-dom";
-jest.mock("../../apiCalls");
 
 describe("BoardingPass", () => {
   let mockSelectedDestination;
