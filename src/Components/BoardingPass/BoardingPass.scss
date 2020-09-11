@@ -32,10 +32,12 @@ $content_width: 45%;
 
 .boarding-pass-image {
   background-color: black;
-  height: 14em;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .cards_wrapper {

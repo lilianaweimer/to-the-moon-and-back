@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BoardingPass from "../BoardingPass/BoardingPass";
 import "./Form.css";
 
-const Form = ({ selectedDestination }) => {
+const Form = ({ selectedDestination, setPassengersToState }) => {
   const [state, setState] = useState({
     numberOfDays: 0,
     numberOfTravelers: 0,
@@ -40,6 +40,10 @@ const Form = ({ selectedDestination }) => {
         age: 0
       }
   ])
+
+  const getValidPassengersFromState = () => {
+    return travelers.filter(trav => trav.name)
+  }
 
   const storeTravelers = (value, index, property) => {
     let newTravelersArry = [...travelers];
@@ -119,7 +123,7 @@ const Form = ({ selectedDestination }) => {
         </label>
         <div className="boarding-pass-container">{showTravelerForms()}</div>
         <br />
-        <button type="submit" className="form-button">
+        <button type="submit" className="form-button" onClick={ (event) => setPassengersToState(event, getValidPassengersFromState()) }>
           Start My Voyage!
         </button>
       </form>

@@ -8,11 +8,11 @@ import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
 import { getAllCelestialBodies } from "../../ApiCalls.js";
-// import BoardingPass from "../BoardingPass/BoardingPass";
 
 function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
   const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
+  const [passengers, setPassengers] = useState({ passengers: [] });
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
@@ -24,7 +24,12 @@ function App() {
     let foundDestination = allCelestialBodies.find(body => body.id === id);
     setSelectedDestination(selectedDestination.destination = foundDestination);
     console.log(selectedDestination);
+  }
+
+  const setPassengersToState = (e, incomingPassengersData) => {
+    e.preventDefault();
     
+    setPassengers(passengers.passengers = incomingPassengersData);
   }
 
   useEffect(() => {
@@ -41,7 +46,10 @@ function App() {
       <Switch>
         <Route 
           path="/voyage-planner" 
-          render={() => <Form selectedDestination={ selectedDestination }/>} 
+          render={() => <Form 
+            selectedDestination={ selectedDestination }
+            setPassengersToState={ setPassengersToState }
+          />} 
         />
         <Route
           exact
