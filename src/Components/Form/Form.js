@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BoardingPass from "../BoardingPass/BoardingPass";
 import "./Form.css";
 
-const Form = () => {
+const Form = ({ selectedDestination }) => {
   const [state, setState] = useState({
     numberOfDays: 0,
     numberOfTravelers: 0,
@@ -55,8 +55,9 @@ const Form = () => {
     return numOfTravelers.map((currentTravelerNum) => {
       return (
         <BoardingPass
-          travelerNumber={numOfTravelers.indexOf(currentTravelerNum)}
-          storeTravelers={storeTravelers}
+          travelerNumber={ numOfTravelers.indexOf(currentTravelerNum) }
+          storeTravelers={ storeTravelers }
+          selectedDestination={ selectedDestination }
         />
       );
     });
@@ -81,7 +82,7 @@ const Form = () => {
       <legend>Voyage Planner</legend>
       <form className="booking-form">
         <label className="label">
-          How many Earth days do you want to spend at [destination]?
+          How many Earth days do you want to spend at your destination, { selectedDestination.name }?
           <br />
           <input
             className="earth-days-input"

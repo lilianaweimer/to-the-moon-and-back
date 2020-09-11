@@ -9,10 +9,10 @@ var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-const BoardingPass = ({ travelerNumber, storeTravelers }) => {
+const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) => {
   console.log("travelerNumber", travelerNumber);
 
-const handleChange = (value, travelerNum, property) => {
+  const handleChange = (value, travelerNum, property) => {
     storeTravelers(value, travelerNum, property);
   }
 
@@ -24,7 +24,7 @@ const handleChange = (value, travelerNum, property) => {
             <img src={PurpleRocket} className="qatar" />
           </div>
           <div className="boarding-pass-image">
-            <img src="https://cdn.mos.cms.futurecdn.net/GA4grWEsUYUqH58cDbRBw8.jpg" />
+            <img src={ selectedDestination.image } />
           </div>
           <div className="card_divider">
             <div className="divider_left divider_hole"></div>
@@ -43,8 +43,8 @@ const handleChange = (value, travelerNum, property) => {
             <img src={Rocket} />
           </div>
           <div className="trip_to">
-            <h1 className="boardingPassH1">SIN</h1>
-            <h2 className="boardingPassH2">Singapore</h2>
+            <h1 className="boardingPassH1">{ selectedDestination.name.charAt(0) }</h1>
+            <h2 className="boardingPassH2">{ selectedDestination.name }</h2>
           </div>
         </div>
         <div className="card_divider">

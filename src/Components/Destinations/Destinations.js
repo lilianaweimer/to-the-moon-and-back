@@ -5,7 +5,7 @@ import DestinationCard from '../DestinationCard/DestinationCard';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function Destinations( { allCelestialBodies } ) {
+function Destinations( { allCelestialBodies, selectDestination } ) {
   const settings = {
     centerMode: true,
     centerPadding: '0',
@@ -20,11 +20,12 @@ function Destinations( { allCelestialBodies } ) {
     return allCelestialBodies.map(body => {
       return (
         <DestinationCard 
-        id={body.id}
-        name={body.name}
-        type={body.celestial_body_type}
-        image={body.image}
-      />
+          id={body.id}
+          name={body.name}
+          type={body.celestial_body_type}
+          image={body.image}
+          selectDestination={ selectDestination }
+        />
       )  
     })
   }

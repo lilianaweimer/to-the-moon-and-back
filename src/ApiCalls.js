@@ -5,6 +5,5 @@ export const getAllCelestialBodies = async () => {
         }
       });
   const celestialBodies = await response.json();
-  console.log(celestialBodies.data)
   return celestialBodies.data;
 }

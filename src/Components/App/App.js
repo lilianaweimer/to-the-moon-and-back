@@ -7,20 +7,25 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
-// import celestialBodies from "../../Mock-Data.json";
 import { getAllCelestialBodies } from "../../ApiCalls.js";
-import BoardingPass from "../BoardingPass/BoardingPass";
+// import BoardingPass from "../BoardingPass/BoardingPass";
 
 function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
+  const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
     setAllCelestialBodies(celestialBodies);
-    // Promise.resolve(celestialBodies).then((data) =>
-    //   setAllCelestialBodies(data.celestialBodies)
-    // );
   };
+
+  const selectDestination = (id) => {
+    console.log('app', id)
+    let foundDestination = allCelestialBodies.find(body => body.id === id);
+    setSelectedDestination(selectedDestination.destination = foundDestination);
+    console.log(selectedDestination);
+    
+  }
 
   useEffect(() => {
     getCelestialBodies();
@@ -34,14 +39,20 @@ function App() {
       <Header />
 
       <Switch>
-        <Route path="/voyage-planner" render={() => <Form />} />
+        <Route 
+          path="/voyage-planner" 
+          render={() => <Form selectedDestination={ selectedDestination }/>} 
+        />
         <Route
           exact
           path="/"
           render={() => (
             <div className="home-page">
               <Weather />
-              <Destinations allCelestialBodies={allCelestialBodies} />
+              <Destinations 
+                allCelestialBodies={ allCelestialBodies } 
+                selectDestination={ selectDestination }
+              />
             </div>
           )}
         />

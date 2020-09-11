@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./DestinationCard.css";
 
-function DestinationCard({ id, name, type, image }) {
+function DestinationCard({ id, name, type, image, selectDestination }) {
+  console.log('card', id)
   return (
     <div className="destination-card" key={id}>
       <section className="destination-name-and-icon">
@@ -21,7 +22,7 @@ function DestinationCard({ id, name, type, image }) {
         <img className="destination-img" src={image} alt={`${name}`} />
       </div>
       <Link to={"voyage-planner"}>
-        <button className="plan-voyage-btn">Plan My Voyage!</button>
+        <button className="plan-voyage-btn" onClick={() => { selectDestination(id) }}>Plan My Voyage!</button>
       </Link>
     </div>
   );
