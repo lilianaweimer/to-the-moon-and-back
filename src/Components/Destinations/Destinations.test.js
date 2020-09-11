@@ -1,13 +1,12 @@
 import React from 'react';
-import { render, waitFor, fireEvent } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import Destinations from './Destinations';
 import { MemoryRouter } from 'react-router-dom';
-import { getAllCelestialBodies } from "../../apiCalls";
+import { getAllCelestialBodies } from "../../ApiCalls";
 import DestinationCard from '../DestinationCard/DestinationCard';
 
 describe("Destinations", () => {
   let mockCelestialBodies;
-  let mockSingleDestination;
 
   beforeEach(() => {
     mockCelestialBodies = [
