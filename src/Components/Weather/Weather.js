@@ -20,7 +20,7 @@ function Weather({ article }) {
 
   return (
     <article className='weather'>
-      <p className='recent-news'>Recent Space News:</p>
+      <p className='recent-news'>Recent Space News</p>
       <img className='news-image' src={article.featured_image} alt={article.title}/>
       <div className='news-title'>
         <h3>{article.title}</h3>

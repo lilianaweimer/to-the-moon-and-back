@@ -4,14 +4,14 @@ import Weather from './Weather';
 import { MemoryRouter } from 'react-router-dom';
 
 describe("Weather", () => {
-  it("Should render a fun fact about space", () => {
+  it("Should render a fun fact about space", async () => {
     const { getByText } = render(
       <MemoryRouter>
-        <Weather />
+        <Weather article={{}}/>
       </MemoryRouter>
     );
 
-    const funFact = getByText("Most recent space", {exact: false});
+    const funFact = getByText("Recent Space News");
 
     expect(funFact).toBeInTheDocument();
   });

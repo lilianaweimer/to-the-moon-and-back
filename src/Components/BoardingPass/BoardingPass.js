@@ -10,7 +10,6 @@ var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
 const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) => {
-  console.log("travelerNumber", travelerNumber);
 
   const handleChange = (value, travelerNum, property) => {
     storeTravelers(value, travelerNum, property);
