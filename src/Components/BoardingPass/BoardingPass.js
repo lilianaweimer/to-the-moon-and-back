@@ -21,7 +21,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
-            <img src={PurpleRocket} className="qatar" alt="rocket"/>
+            <img src={ PurpleRocket } className="qatar" alt="rocket"/>
           </div>
           <div className="boarding-pass-image">
             <img src={ selectedDestination.image } alt={ selectedDestination.name }/>

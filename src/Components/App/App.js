@@ -13,12 +13,13 @@ function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
   const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
   const [passengers, setPassengers] = useState({ passengers: [] });
+  const [newsArticle, setNewsArticle] = useState({});
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
     const news = await getRecentNews();
-    console.log(news);
     setAllCelestialBodies(celestialBodies);
+    setNewsArticle(news);
   };
 
   const selectDestination = (id) => {
@@ -58,7 +59,7 @@ function App() {
           path="/"
           render={() => (
             <div className="home-page">
-              <Weather />
+              <Weather article={ newsArticle }/>
               <Destinations 
                 allCelestialBodies={ allCelestialBodies } 
                 selectDestination={ selectDestination }
