@@ -7,16 +7,19 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
-import { getAllCelestialBodies } from "../../ApiCalls.js";
+import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
   const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
   const [passengers, setPassengers] = useState({ passengers: [] });
+  const [newsArticle, setNewsArticle] = useState({});
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
+    const news = await getRecentNews();
     setAllCelestialBodies(celestialBodies);
+    setNewsArticle(news);
   };
 
   const selectDestination = (id) => {
@@ -56,7 +59,7 @@ function App() {
           path="/"
           render={() => (
             <div className="home-page">
-              <Weather />
+              <Weather article={ newsArticle }/>
               <Destinations 
                 allCelestialBodies={ allCelestialBodies } 
                 selectDestination={ selectDestination }

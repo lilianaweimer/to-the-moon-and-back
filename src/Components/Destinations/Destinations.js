@@ -33,6 +33,7 @@ function Destinations( { allCelestialBodies, selectDestination } ) {
 
   return (
     <div className='destinations'>
+      <h3 className='destinations-title'>Voyage Destinations</h3>
       <Slider  {...settings}>
        {getDestinations()}
       </Slider>

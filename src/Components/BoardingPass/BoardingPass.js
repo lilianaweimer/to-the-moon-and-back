@@ -10,7 +10,6 @@ var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
 const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) => {
-  console.log("travelerNumber", travelerNumber);
 
   const handleChange = (value, travelerNum, property) => {
     storeTravelers(value, travelerNum, property);
@@ -21,7 +20,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
-            <img src={PurpleRocket} className="qatar" alt="rocket"/>
+            <img src={ PurpleRocket } className="qatar" alt="rocket"/>
           </div>
           <div className="boarding-pass-image">
             <img src={ selectedDestination.image } alt={ selectedDestination.name }/>

@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import "./DestinationCard.css";
 
 function DestinationCard({ id, name, type, image, selectDestination }) {
-  console.log('card', id)
   return (
     <div className="destination-card" key={id}>
       <section className="destination-name-and-icon">
-        <div className="destination-name-div">
-          <p className="destination-name">{name}</p>
-        </div>
-        <div className="destination-icon-div">
+      <div className="destination-icon-div">
           <img
             className="destination-icon"
             src={require(`../../Images/${type}.svg`)}
             alt={`${type}-icon`}
           />
+        </div>
+        <div className="destination-name-div">
+          <p className="destination-name">{name}</p>
         </div>
       </section>
       <div className="destination-image-container">
