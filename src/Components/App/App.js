@@ -23,10 +23,8 @@ function App() {
   };
 
   const selectDestination = (id) => {
-    console.log('app', id)
     let foundDestination = allCelestialBodies.find(body => body.id === id);
     setSelectedDestination(selectedDestination.destination = foundDestination);
-    console.log(selectedDestination);
   }
 
   const setPassengersToState = (e, incomingPassengersData) => {
@@ -54,6 +52,7 @@ function App() {
             setPassengersToState={ setPassengersToState }
           />} 
         />
+        <Route path="/destination/:id" render={(routeProps) => {}} />
         <Route
           exact
           path="/"
