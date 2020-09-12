@@ -7,7 +7,7 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
-import { getAllCelestialBodies } from "../../ApiCalls.js";
+import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
@@ -16,6 +16,8 @@ function App() {
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
+    const news = await getRecentNews();
+    console.log(news);
     setAllCelestialBodies(celestialBodies);
   };
 

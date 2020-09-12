@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./DestinationCard.css";
 
 function DestinationCard({ id, name, type, image, selectDestination }) {
-  console.log('card', id)
   return (
     <div className="destination-card" key={id}>
       <section className="destination-name-and-icon">
