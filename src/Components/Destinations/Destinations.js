@@ -25,6 +25,7 @@ function Destinations( { allCelestialBodies, selectDestination } ) {
           type={body.celestial_body_type}
           image={body.image}
           selectDestination={ selectDestination }
+          key={ body.id }
         />
       )  
     })

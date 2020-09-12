@@ -17,14 +17,14 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
   }
 
   return (
-    <section className="cards_wrapper">
+    <section className="cards_wrapper" key={travelerNumber}>
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
-            <img src={PurpleRocket} className="qatar" />
+            <img src={PurpleRocket} className="qatar" alt="rocket"/>
           </div>
           <div className="boarding-pass-image">
-            <img src={ selectedDestination.image } />
+            <img src={ selectedDestination.image } alt={ selectedDestination.name }/>
           </div>
           <div className="card_divider">
             <div className="divider_left divider_hole"></div>
@@ -40,7 +40,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
             <h2 className="boardingPassH2">Earth</h2>
           </div>
           <div className="trip_icon">
-            <img src={Rocket} />
+            <img src={Rocket} alt="rocket"/>
           </div>
           <div className="trip_to">
             <h1 className="boardingPassH1">{ selectedDestination.name.charAt(0) }</h1>
@@ -59,7 +59,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
               Name:
               <input
                 className="traveler-info"
-                autocomplete="off"
+                autoComplete="off"
                 type="text"
                 name="name"
                 placeholder="Name"
@@ -74,7 +74,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
               Weight (lbs):
               <input
                 className="traveler-info"
-                autocomplete="off"
+                autoComplete="off"
                 min="0"
                 type="number"
                 name="weight"
@@ -90,7 +90,7 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
               Age:
               <input
                 className="traveler-info"
-                autocomplete="off"
+                autoComplete="off"
                 min="0"
                 type="number"
                 name="age"

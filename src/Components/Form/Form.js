@@ -62,6 +62,7 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
           travelerNumber={ numOfTravelers.indexOf(currentTravelerNum) }
           storeTravelers={ storeTravelers }
           selectedDestination={ selectedDestination }
+          key={ numOfTravelers.indexOf(currentTravelerNum) }
         />
       );
     });
@@ -105,6 +106,7 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
           How many people will be on your voyage?
           <br />
           <select
+            data-testid="select"
             alt="Number of Travelers"
             name="traveler-count"
             className="dropdown"
