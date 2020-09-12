@@ -54,13 +54,14 @@
   margin: 0;
   border-top: 2px solid #ADB8EB;
   border-bottom: 2px solid #ADB8EB;
-  /* padding: 1.2em; */
   font-family: 'Montserrat', sans-serif;
+  padding-left: 2%;
+  padding-right: 2%;
+  max-width: 85%;
 }
 
 .news-date {
   margin-bottom: 2%;
-  /* padding: 0.5em; */
   font-family: 'Montserrat', sans-serif;
   font-style: italic;
   letter-spacing: 0.2em;
