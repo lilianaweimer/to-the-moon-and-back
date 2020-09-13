@@ -23,10 +23,8 @@ function App() {
   };
 
   const selectDestination = (id) => {
-    console.log('app', id)
     let foundDestination = allCelestialBodies.find(body => body.id === id);
     setSelectedDestination(selectedDestination.destination = foundDestination);
-    console.log(selectedDestination);
   }
 
   const setPassengersToState = (e, incomingPassengersData) => {

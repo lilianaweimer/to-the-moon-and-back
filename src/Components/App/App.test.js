@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { render, fireEvent, waitFor, getByTestId } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls";
@@ -67,7 +67,7 @@ describe("App", () => {
     const newsTitle = await waitFor(() => getByText("Chinese Kuaizhou-1A", { exact: false }));
     const newsDate = await waitFor(() => getByText("09/12/2020"));
     const destinationName = await waitFor(() => getByText("Sun"));
-    // const button = await waitFor(() => getAllByText("Plan My Voyage!"));
+   
 
     expect(header).toBeInTheDocument();
     expect(newsTitle).toBeInTheDocument();
@@ -75,4 +75,49 @@ describe("App", () => {
     expect(destinationName).toBeInTheDocument();
 
   });
+
+  it.skip("Should be able to click on the learn more button and be redirected to a new page showing the article", async () => {
+    getRecentNews.mockResolvedValue(mockGetRecentNews);
+
+    const { getByText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const learnMoreBtn = await waitFor(() => getByText("Learn More"));
+    const mockBtnClick = jest.fn();
+
+    fireEvent.click(learnMoreBtn);
+
+    expect(mockBtnClick).toHaveBeenCalledTimes(1);
+
+  });
+
+  it("Should be able to select a destination and then be brought to the voyage planner page", async () => {
+    const { getByText, getByTestId, getByPlaceholderText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const destinationName = await waitFor(() => getByText("Sun"));
+    const button = await waitFor(() => getByTestId("9"));
+
+    fireEvent.click(button);
+
+    const title = await waitFor(() => getByText("Voyage Planner"));
+    const howManyDays = await waitFor(() => getByText("How many Earth days", { exact: false }));
+    const daysInput = await waitFor(() => getByPlaceholderText("Earth Days"));
+    const howManyPeople = await waitFor(() => getByText("How many people will", { exact: false }));
+    const startVoyageBtn = await waitFor(() => getByText("Start My Voyage!"));
+
+    expect(title).toBeInTheDocument();
+    expect(howManyDays).toBeInTheDocument();
+    expect(daysInput).toBeInTheDocument();
+    expect(howManyPeople).toBeInTheDocument();
+    expect(startVoyageBtn).toBeInTheDocument();
+    expect(destinationName).not.toBeInTheDocument();
+  });
+
 });
