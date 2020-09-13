@@ -12,10 +12,31 @@
 }
 
 .hyperspace-rocket {
-  position: absolute;
+  position: relative;
   z-index: 10;
-  width: 100px;
+  width: 50px;
   height: auto;
+  animation: rocket-move 6s;
+  bottom: -500px;
+  right: 500px;
+}
+
+@keyframes rocket-move {
+  0% {
+    transform: rotate(-55deg) scale(4);
+  }
+  50% {
+    transform: translateX(-200px) rotate(25deg) scale(2);
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 0px;
+    right: 0px;
+    tranform: rotate(20deg) scale(1);
+    opacity: 0;
+  }
 }
 
 .wrap {
