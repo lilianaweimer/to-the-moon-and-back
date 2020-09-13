@@ -2,13 +2,9 @@
   border: solid 2px #ADB8EB;
   color: white;
   display: flex;
-  /* margin-left: 24%;
-  margin-top: 5%;
-  margin-bottom: 9%; */
   margin: 5%;
   justify-content: center;
   width: 40%;
-  /* padding: 3%; */
   background-color: #050517;
   border-radius: 6px;
   flex-flow: column nowrap;

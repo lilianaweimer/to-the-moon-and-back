@@ -7,6 +7,7 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
+import ThankYou from "../ThankYou/ThankYou";
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
       <Header />
 
       <Switch>
+        <Route 
+          path="/thank-you"
+          render={() => <ThankYou 
+            selectedDestination={ selectedDestination }
+          />}
+        />
         <Route 
           path="/voyage-planner" 
           render={() => <Form 
