@@ -21,7 +21,7 @@ function DestinationCard({ id, name, type, image, selectDestination }) {
         <img className="destination-img" src={image} alt={`${name}`} />
       </div>
       <Link to={"voyage-planner"}>
-        <button className="plan-voyage-btn" onClick={() => { selectDestination(id) }}>Plan My Voyage!</button>
+        <button className="plan-voyage-btn" data-testid={id} onClick={() => { selectDestination(id) }}>Plan My Voyage!</button>
       </Link>
     </div>
   );

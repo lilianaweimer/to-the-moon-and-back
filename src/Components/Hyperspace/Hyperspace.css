@@ -1,0 +1,113 @@
+.wall{
+  background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/potw2036a.jpg');
+  background-size: cover;
+}
+
+.scene {
+  display: inline-block;
+  vertical-align: middle;
+  perspective: 5px;
+  perspective-origin: 50% 50%;
+  position: relative;
+}
+
+.hyperspace-rocket {
+  position: relative;
+  z-index: 10;
+  width: 50px;
+  height: auto;
+  animation: rocket-move 6s;
+  bottom: -500px;
+  right: 500px;
+}
+
+@keyframes rocket-move {
+  0% {
+    transform: rotate(-55deg) scale(4);
+  }
+  50% {
+    transform: translateX(-200px) rotate(25deg) scale(2);
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 0px;
+    right: 0px;
+    tranform: rotate(20deg) scale(1);
+    opacity: 0;
+  }
+}
+
+.wrap {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  left: -500px;
+  top: -500px;
+  transform-style: preserve-3d;
+  animation: move 6s infinite linear;
+  animation-fill-mode: forwards;
+}
+
+.wrap:nth-child(2) {
+  animation: move 6s infinite linear;
+  animation-delay: 6s;
+}
+
+.wall {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  animation: fade 6s infinite linear;
+  animation-delay: 0;
+}
+
+.wrap:nth-child(2) .wall {
+  animation-delay: 6s;
+}
+
+.wall-right {
+  transform: rotateY(90deg) translateZ(500px);
+}
+
+.wall-left {
+  transform: rotateY(-90deg) translateZ(500px);
+}
+
+.wall-top {
+  transform: rotateX(90deg) translateZ(500px);
+}
+
+.wall-bottom {
+  transform: rotateX(-90deg) translateZ(500px);
+}
+
+.wall-back {
+  transform: rotateX(180deg) translateZ(500px);
+}
+
+@keyframes move {
+  0%{
+    transform: translateZ(-500px) rotate(0deg);
+  }
+  100%{
+    transform: translateZ(500px) rotate(0deg);
+  }
+}
+
+@keyframes fade {
+  0%{
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}

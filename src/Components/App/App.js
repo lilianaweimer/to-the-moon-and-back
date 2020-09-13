@@ -8,6 +8,7 @@ import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
 import ThankYou from "../ThankYou/ThankYou";
+import LandingSite from '../LandingSite/LandingSite';
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
@@ -24,10 +25,8 @@ function App() {
   };
 
   const selectDestination = (id) => {
-    console.log('app', id)
     let foundDestination = allCelestialBodies.find(body => body.id === id);
     setSelectedDestination(selectedDestination.destination = foundDestination);
-    console.log(selectedDestination);
   }
 
   const setPassengersToState = (e, incomingPassengersData) => {
@@ -45,7 +44,7 @@ function App() {
       <div className="background">
         <Background />
       </div>
-      <Header />
+      <Header selectedDestination={ selectedDestination }/>
 
       <Switch>
         <Route 
@@ -53,6 +52,10 @@ function App() {
           render={() => <ThankYou 
             selectedDestination={ selectedDestination }
           />}
+        />
+        <Route
+          path="/destinations/:id" 
+          render={() => <LandingSite destination={selectedDestination} />} 
         />
         <Route 
           path="/voyage-planner" 

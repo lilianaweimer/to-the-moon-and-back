@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import BoardingPass from "../BoardingPass/BoardingPass";
 import "./Form.css";
 
@@ -125,9 +126,11 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
         </label>
         <div className="boarding-pass-container">{showTravelerForms()}</div>
         <br />
-        <button type="submit" className="form-button" onClick={ (event) => setPassengersToState(event, getValidPassengersFromState()) }>
-          Start My Voyage!
-        </button>
+          <button type="submit" className="form-button" onClick={ (event) => setPassengersToState(event, getValidPassengersFromState()) }>
+            <Link className="form-link" to={`destinations/${selectedDestination.id}`}>
+              Start My Voyage!
+            </Link>
+          </button>
       </form>
     </fieldset>
   );
