@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import "./App.css";
@@ -7,8 +7,8 @@ import Weather from "../Weather/Weather";
 import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
+import ThankYou from "../ThankYou/ThankYou";
 import LandingSite from '../LandingSite/LandingSite';
-
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
   const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
   const [passengers, setPassengers] = useState({ passengers: [] });
   const [newsArticle, setNewsArticle] = useState({});
+  const [isTraveling, setIsTraveling] = useState(false);
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
@@ -35,6 +36,10 @@ function App() {
     setPassengers(passengers.passengers = incomingPassengersData);
   }
 
+  const setTravelingState = useCallback((toggleTraveling) => {
+    setIsTraveling(toggleTraveling)
+  }, []);
+
   useEffect(() => {
     getCelestialBodies();
   }, []);
@@ -44,12 +49,25 @@ function App() {
       <div className="background">
         <Background />
       </div>
-      <Header />
+      <Header 
+        selectedDestination={ selectedDestination }
+        isTraveling={ isTraveling }
+        />
 
       <Switch>
         <Route 
+          path="/thank-you"
+          render={() => <ThankYou 
+            selectedDestination={ selectedDestination }
+            setTravelingState={ setTravelingState }
+          />}
+        />
+        <Route
           path="/destinations/:id" 
-          render={() => <LandingSite destination={selectedDestination} />} 
+          render={() => <LandingSite 
+            destination={selectedDestination} 
+            setTravelingState={ setTravelingState }
+            />} 
         />
         <Route 
           path="/voyage-planner" 

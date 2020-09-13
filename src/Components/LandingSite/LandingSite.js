@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import Hyperspace from '../Hyperspace/Hyperspace';
 
-const LandingSite = () => {
+const LandingSite = ({ setTravelingState }) => {
   
   const [isInHyperspace, toggleHyperspace] = useState(true);
+
+  useEffect(() => {
+    setTravelingState(true);
+  }, [setTravelingState]);
 
   useEffect(() => {
     const timer = setTimeout(() => toggleHyperspace(false), 6000);
