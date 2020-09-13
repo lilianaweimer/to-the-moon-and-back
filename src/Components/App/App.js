@@ -16,6 +16,7 @@ function App() {
   const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
   const [passengers, setPassengers] = useState({ passengers: [] });
   const [newsArticle, setNewsArticle] = useState({});
+  const [isTraveling, setIsTraveling] = useState(false);
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
@@ -35,6 +36,10 @@ function App() {
     setPassengers(passengers.passengers = incomingPassengersData);
   }
 
+  const setTravelingState = (toggleTraveling) => {
+    setIsTraveling(toggleTraveling)
+  }
+
   useEffect(() => {
     getCelestialBodies();
   }, []);
@@ -44,18 +49,25 @@ function App() {
       <div className="background">
         <Background />
       </div>
-      <Header selectedDestination={ selectedDestination }/>
+      <Header 
+        selectedDestination={ selectedDestination }
+        isTraveling={ isTraveling }
+        />
 
       <Switch>
         <Route 
           path="/thank-you"
           render={() => <ThankYou 
             selectedDestination={ selectedDestination }
+            setTravelingState={ setTravelingState }
           />}
         />
         <Route
           path="/destinations/:id" 
-          render={() => <LandingSite destination={selectedDestination} />} 
+          render={() => <LandingSite 
+            destination={selectedDestination} 
+            setTravelingState={ setTravelingState }
+            />} 
         />
         <Route 
           path="/voyage-planner" 

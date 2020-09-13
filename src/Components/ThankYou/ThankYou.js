@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import "./ThankYou.css";
 import Hyperspace from '../Hyperspace/Hyperspace';
 
-function ThankYou({ selectedDestination }) {
+function ThankYou({ selectedDestination, setTravelingState }) {
 
   const [isInHyperspace, toggleHyperspace] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => toggleHyperspace(false), 6000);
+    setTravelingState(false);
     return () => clearTimeout(timer);
   }, []);
 
