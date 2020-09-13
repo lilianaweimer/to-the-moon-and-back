@@ -9,6 +9,8 @@
 .landing-img-info {
   /* background-image: url("") no-repeat  center fixed; */
   height: 50%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .land-marks-container {
@@ -30,7 +32,28 @@
   top: 0;
   left: 0;
   z-index: -1;
-  
+}
+
+.destination-info-container {
+  background-color: #ADB8EB;
+  width: 20%;
+  height: 50%;
+  border-radius: 6px;
+}
+
+.destination-info {
+
+}
+
+.traveler-info-container {
+  background-color: #ADB8EB;
+  width: 20%;
+  height: 40%;
+  border-radius: 6px;
+}
+
+.passenger-info {
+
 }
 
 .land-mark-card {
