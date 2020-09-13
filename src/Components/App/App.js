@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import "./App.css";
@@ -36,9 +36,9 @@ function App() {
     setPassengers(passengers.passengers = incomingPassengersData);
   }
 
-  const setTravelingState = (toggleTraveling) => {
+  const setTravelingState = useCallback((toggleTraveling) => {
     setIsTraveling(toggleTraveling)
-  }
+  }, []);
 
   useEffect(() => {
     getCelestialBodies();

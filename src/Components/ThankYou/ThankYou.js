@@ -9,7 +9,7 @@ function ThankYou({ selectedDestination, setTravelingState }) {
 
   useEffect(() => {
     setTravelingState(false);
-  }, []);
+  }, [setTravelingState]);
 
   useEffect(() => {
     const timer = setTimeout(() => toggleHyperspace(false), 6000);
