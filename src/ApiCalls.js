@@ -19,3 +19,13 @@ export const getRecentNews = async () => {
   const randomIndex = Math.floor(Math.random() * length);
   return allNews.docs[randomIndex];
 }
+
+export const getLandMarks = async (id) => {
+  const response = await fetch('https://fe-cors-proxy.herokuapp.com', {
+    headers : {
+      "Target-URL" : `https://moon-back-end.herokuapp.com/api/v1/celestial_bodies/${id}/landmarks`
+    }
+  });
+  const landMarks = await response.json();
+  return landMarks.data;
+}

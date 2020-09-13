@@ -1,0 +1,79 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  border: solid 1px pink;
+}
+
+.landing-img-info {
+  /* background-image: url("") no-repeat  center fixed; */
+  height: 50%;
+}
+
+.land-marks-container {
+  border: 3px solid #ADB8EB;
+  z-index: 3;
+  height: 45%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.destination-landing-img {
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  
+}
+
+.land-mark-card {
+  background-color: #ADB8EB;
+  border-right: solid 4px #adb8eb;
+  border-left: solid 4px #adb8eb;
+  width: 30%;
+  z-index: 5;
+  width: 17%;
+  height: 69%;
+  border-radius: 6px;
+  overflow: scroll;
+  text-align: left;
+}
+
+.land-mark-name {
+  font-size: 1.8em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.land-mark-type {
+  font-size: 1em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.land-mark-image {
+  width: 30%;
+}
+
+.land-mark-description {
+  width: 100%;
+  
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .destination-img {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}

@@ -2,9 +2,10 @@ import React, { PureComponent } from "react";
 import "./Background.scss";
 
 class Background extends PureComponent {
-
+  
   render() {
     return (
+      !this.props.isTraveling && 
       <section className="background">
         <div id="stars"></div>
         <div id="stars2"></div>
