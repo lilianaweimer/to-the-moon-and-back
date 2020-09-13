@@ -7,7 +7,10 @@ const LandingSite = ({ setTravelingState }) => {
   const [isInHyperspace, toggleHyperspace] = useState(true);
 
   useEffect(() => {
-    setTravelingState(true)
+    setTravelingState(true);
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => toggleHyperspace(false), 6000);
     return () => clearTimeout(timer);
   }, []);
