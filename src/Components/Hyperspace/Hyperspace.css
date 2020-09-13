@@ -1,5 +1,5 @@
 .wall{
-  background: url('../../Images/hyperspace.jpg');
+  background: url('https://www.nasa.gov/sites/default/files/thumbnails/image/potw2036a.jpg');
   background-size: cover;
 }
 
@@ -11,6 +11,13 @@
   position: relative;
 }
 
+.hyperspace-rocket {
+  position: absolute;
+  z-index: 10;
+  width: 100px;
+  height: auto;
+}
+
 .wrap {
   position: absolute;
   width: 1000px;
@@ -18,12 +25,12 @@
   left: -500px;
   top: -500px;
   transform-style: preserve-3d;
-  animation: move 12s infinite linear;
+  animation: move 6s infinite linear;
   animation-fill-mode: forwards;
 }
 
 .wrap:nth-child(2) {
-  animation: move 12s infinite linear;
+  animation: move 6s infinite linear;
   animation-delay: 6s;
 }
 
@@ -32,7 +39,7 @@
   height: 100%;
   position: absolute;
   opacity: 0;
-  animation: fade 12s infinite linear;
+  animation: fade 6s infinite linear;
   animation-delay: 0;
 }
 

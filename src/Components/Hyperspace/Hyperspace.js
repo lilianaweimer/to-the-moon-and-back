@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import "./Hyperspace.css";
 
 const Hyperspace = () => {
-  //local state with isInHyperspace starts true
-  //timeout changes it to false
-
-
   return (
-    <div class="scene">
-      <div class="wrap">
-          <div class="wall wall-right"></div>
-          <div class="wall wall-left"></div>   
-          <div class="wall wall-top"></div>
-          <div class="wall wall-bottom"></div> 
-          <div class="wall wall-back"></div>    
+    <div className="scene">
+      <img className='hyperspace-rocket' src={require('../../Images/hyperspace-rocket.svg')} alt='a rocket flying through space'/>
+      <div className="wrap">
+          <div className="wall wall-right"></div>
+          <div className="wall wall-left"></div>   
+          <div className="wall wall-top"></div>
+          <div className="wall wall-bottom"></div> 
+          <div className="wall wall-back"></div>    
       </div>
-      <div class="wrap">
-          <div class="wall wall-right"></div>
-          <div class="wall wall-left"></div>   
-          <div class="wall wall-top"></div>
-          <div class="wall wall-bottom"></div>   
-          <div class="wall wall-back"></div>    
+      <div className="wrap">
+          <div className="wall wall-right"></div>
+          <div className="wall wall-left"></div>   
+          <div className="wall wall-top"></div>
+          <div className="wall wall-bottom"></div>   
+          <div className="wall wall-back"></div>    
       </div>
     </div>
   )
