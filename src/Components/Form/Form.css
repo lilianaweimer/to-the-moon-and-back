@@ -77,3 +77,12 @@ legend {
   border: 3px solid #ADB8EB;
 }
 
+.form-link {
+  text-decoration: none;
+  color:  #ADB8EB;
+}
+
+.form-link:visited {
+  color:  #ADB8EB;
+}
+
