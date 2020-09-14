@@ -5,7 +5,7 @@ class Background extends PureComponent {
   
   render() {
     return (
-      !this.props.isTraveling && 
+      // !this.props.isTraveling && 
       <section className="background">
         <div id="stars"></div>
         <div id="stars2"></div>
