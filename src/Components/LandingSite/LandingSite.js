@@ -51,9 +51,12 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   }
 
   useEffect(() => {
-    getLandMarks(destination.id)
-    .then(data => setLandMarks(data));
-  }, [])
+    const grabLandMarks = () => {
+      getLandMarks(destination.id)
+      .then(data => setLandMarks(data));
+    }
+    grabLandMarks();
+  }, [destination.id]);
 
   useEffect(() => {
     setTravelingState(true);
