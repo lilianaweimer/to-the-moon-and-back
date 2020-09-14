@@ -2,6 +2,7 @@ import React from "react";
 import "./BoardingPass.scss";
 import Rocket from "../../Images/rocket.svg";
 import PurpleRocket from "../../Images/rocket_purple.svg";
+import FlatLogo from "../../Images/to_the_moon_logo_dark_plum.svg";
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, "0");
@@ -9,21 +10,27 @@ var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
 today = mm + "/" + dd + "/" + yyyy;
 
-const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) => {
-
+const BoardingPass = ({
+  travelerNumber,
+  storeTravelers,
+  selectedDestination,
+}) => {
   const handleChange = (value, travelerNum, property) => {
     storeTravelers(value, travelerNum, property);
-  }
+  };
 
   return (
     <section className="cards_wrapper" key={travelerNumber}>
       <div className="card qr-theme">
         <div className="card_heading">
           <div className="card_logo">
-            <img src={ PurpleRocket } className="qatar" alt="rocket"/>
+            <img src={FlatLogo} className="qatar" alt="rocket" />
           </div>
           <div className="boarding-pass-image">
-            <img src={ selectedDestination.image } alt={ selectedDestination.name }/>
+            <img
+              src={selectedDestination.image}
+              alt={selectedDestination.name}
+            />
           </div>
           <div className="card_divider">
             <div className="divider_left divider_hole"></div>
@@ -39,11 +46,13 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
             <h2 className="boardingPassH2">Earth</h2>
           </div>
           <div className="trip_icon">
-            <img src={Rocket} alt="rocket"/>
+            <img src={Rocket} alt="rocket" />
           </div>
           <div className="trip_to">
-            <h1 className="boardingPassH1">{ selectedDestination.name.charAt(0) }</h1>
-            <h2 className="boardingPassH2">{ selectedDestination.name }</h2>
+            <h1 className="boardingPassH1">
+              {selectedDestination.name.charAt(0)}
+            </h1>
+            <h2 className="boardingPassH2">{selectedDestination.name}</h2>
           </div>
         </div>
         <div className="card_divider">
@@ -63,8 +72,12 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
                 name="name"
                 placeholder="Name"
                 required
-                onChange={(event) => 
-                  handleChange(event.target.value, travelerNumber, event.target.name)
+                onChange={(event) =>
+                  handleChange(
+                    event.target.value,
+                    travelerNumber,
+                    event.target.name
+                  )
                 }
               />
             </label>
@@ -79,8 +92,12 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
                 name="weight"
                 placeholder="Weight (lbs)"
                 required
-                onChange={(event) => 
-                  handleChange(event.target.value, travelerNumber, event.target.name)
+                onChange={(event) =>
+                  handleChange(
+                    event.target.value,
+                    travelerNumber,
+                    event.target.name
+                  )
                 }
               />
             </label>
@@ -95,8 +112,12 @@ const BoardingPass = ({ travelerNumber, storeTravelers, selectedDestination }) =
                 name="age"
                 placeholder="Age"
                 required
-                onChange={(event) => 
-                  handleChange(event.target.value, travelerNumber, event.target.name)
+                onChange={(event) =>
+                  handleChange(
+                    event.target.value,
+                    travelerNumber,
+                    event.target.name
+                  )
                 }
               />
             </label>
