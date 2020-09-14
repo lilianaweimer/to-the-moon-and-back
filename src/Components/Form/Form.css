@@ -10,8 +10,22 @@
   padding: 3%;
   background-color: #050517;
   border-radius: 6px;
-  /* align-items: space-around; */
   flex-flow: column nowrap;
+}
+
+legend {
+  font-size: 2em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.label {
+  font-size: 1.3em;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  align-self: center;
 }
 
 .form-container legend {
@@ -19,12 +33,56 @@
 }
 
 .form-container select, input {
-  margin: 2%;
+  margin: 1.5%;
   cursor: pointer;
+  height: 1.8em;
+  font-size: 1em;
+  
+}
+
+.earth-days-input,
+.dropdown {
+  margin: 1.5%;
+  cursor: pointer;
+  height: 1.8em;
+  font-size: 1em;
+  border-radius: 7px;
+  font-family: "Montserrat", sans-serif;
+  padding-left: 0.5%;
+  border: 3px solid #ADB8EB;
+  color: #3d1566;
+  font-weight: 700;
+}
+
+.booking-form {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .form-button {
-  text-align: center;
-  margin: 0 auto;
+  align-self: center;
+  height: 4rem;
+  width: 165px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ADB8EB;
+  background-color: #050517;
+  border-radius: 45px;
+  transition: all .3s ease 0s;
   cursor: pointer;
+  border: 3px solid #ADB8EB;
 }
+
+.form-link {
+  text-decoration: none;
+  color:  #ADB8EB;
+}
+
+.form-link:visited {
+  color:  #ADB8EB;
+}
+
