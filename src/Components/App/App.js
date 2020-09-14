@@ -8,12 +8,14 @@ import Destinations from "../Destinations/Destinations";
 import Background from "../Background/Background";
 import Form from "../Form/Form";
 import ThankYou from "../ThankYou/ThankYou";
-import LandingSite from '../LandingSite/LandingSite';
+import LandingSite from "../LandingSite/LandingSite";
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
   const [allCelestialBodies, setAllCelestialBodies] = useState([]);
-  const [selectedDestination, setSelectedDestination] = useState({ destination: {} });
+  const [selectedDestination, setSelectedDestination] = useState({
+    destination: {},
+  });
   const [passengers, setPassengers] = useState({ passengers: [] });
   const [newsArticle, setNewsArticle] = useState({});
   const [isTraveling, setIsTraveling] = useState(false);
@@ -26,18 +28,20 @@ function App() {
   };
 
   const selectDestination = (id) => {
-    let foundDestination = allCelestialBodies.find(body => body.id === id);
-    setSelectedDestination(selectedDestination.destination = foundDestination);
-  }
+    let foundDestination = allCelestialBodies.find((body) => body.id === id);
+    setSelectedDestination(
+      (selectedDestination.destination = foundDestination)
+    );
+  };
 
-  const setPassengersToState = (e, incomingPassengersData) => {
-    e.preventDefault();
-    
-    setPassengers(passengers.passengers = incomingPassengersData);
-  }
+  const setPassengersToState = (event, incomingPassengersData) => {
+    event.preventDefault();
+
+    setPassengers((passengers.passengers = incomingPassengersData));
+  };
 
   const setTravelingState = useCallback((toggleTraveling) => {
-    setIsTraveling(toggleTraveling)
+    setIsTraveling(toggleTraveling);
   }, []);
 
   useEffect(() => {
@@ -47,47 +51,51 @@ function App() {
   return (
     <div className="App">
       <div className="background">
-        <Background 
-          isTraveling={ isTraveling }
-        />
+        <Background isTraveling={isTraveling} />
       </div>
-      <Header 
-        selectedDestination={ selectedDestination }
-        isTraveling={ isTraveling }
-        />
+      <Header
+        selectedDestination={selectedDestination}
+        isTraveling={isTraveling}
+      />
 
       <Switch>
-        <Route 
+        <Route
           path="/thank-you"
-          render={() => <ThankYou 
-            selectedDestination={ selectedDestination }
-            setTravelingState={ setTravelingState }
-          />}
+          render={() => (
+            <ThankYou
+              selectedDestination={selectedDestination}
+              setTravelingState={setTravelingState}
+            />
+          )}
         />
         <Route
-          path="/destinations/:id" 
-          render={() => <LandingSite 
-            destination={selectedDestination} 
-            setTravelingState={ setTravelingState }
-            passengers={ passengers }
-            />} 
+          path="/destinations/:id"
+          render={() => (
+            <LandingSite
+              destination={selectedDestination}
+              setTravelingState={setTravelingState}
+              passengers={passengers}
+            />
+          )}
         />
-        <Route 
-          path="/voyage-planner" 
-          render={() => <Form 
-            selectedDestination={ selectedDestination }
-            setPassengersToState={ setPassengersToState }
-          />} 
+        <Route
+          path="/voyage-planner"
+          render={() => (
+            <Form
+              selectedDestination={selectedDestination}
+              setPassengersToState={setPassengersToState}
+            />
+          )}
         />
         <Route
           exact
           path="/"
           render={() => (
             <div className="home-page">
-              <Weather article={ newsArticle }/>
-              <Destinations 
-                allCelestialBodies={ allCelestialBodies } 
-                selectDestination={ selectDestination }
+              <Weather article={newsArticle} />
+              <Destinations
+                allCelestialBodies={allCelestialBodies}
+                selectDestination={selectDestination}
               />
             </div>
           )}
