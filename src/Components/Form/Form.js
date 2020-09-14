@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import BoardingPass from "../BoardingPass/BoardingPass";
 import "./Form.css";
 
@@ -10,47 +10,49 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
   });
 
   const [travelers, setTravelers] = useState([
-      {
-        id: 1,
-        name: '',
-        weight: 0,
-        age: 0
-      },
-      {
-        id: 2,
-        name: '',
-        weight: 0,
-        age: 0
-      },
-      {
-        id: 3,
-        name: '',
-        weight: 0,
-        age: 0
-      },
-      {
-        id: 4,
-        name: '',
-        weight: 0,
-        age: 0
-      },
-      {
-        id: 5,
-        name: '',
-        weight: 0,
-        age: 0
-      }
-  ])
+    {
+      id: 1,
+      name: "",
+      weight: 0,
+      age: 0,
+    },
+    {
+      id: 2,
+      name: "",
+      weight: 0,
+      age: 0,
+    },
+    {
+      id: 3,
+      name: "",
+      weight: 0,
+      age: 0,
+    },
+    {
+      id: 4,
+      name: "",
+      weight: 0,
+      age: 0,
+    },
+    {
+      id: 5,
+      name: "",
+      weight: 0,
+      age: 0,
+    },
+  ]);
+
+  const [isFilledOut, toggleFilledOut] = useState(false);
 
   const getValidPassengersFromState = () => {
-    return travelers.filter(trav => trav.name)
-  }
+    return travelers.filter((trav) => trav.name);
+  };
 
   const storeTravelers = (value, index, property) => {
     let newTravelersArry = [...travelers];
     newTravelersArry[index][property] = value;
     setTravelers(newTravelersArry);
-  }
+  };
 
   const showTravelerForms = () => {
     let numOfTravelers = [];
@@ -60,10 +62,10 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
     return numOfTravelers.map((currentTravelerNum) => {
       return (
         <BoardingPass
-          travelerNumber={ numOfTravelers.indexOf(currentTravelerNum) }
-          storeTravelers={ storeTravelers }
-          selectedDestination={ selectedDestination }
-          key={ numOfTravelers.indexOf(currentTravelerNum) }
+          travelerNumber={numOfTravelers.indexOf(currentTravelerNum)}
+          storeTravelers={storeTravelers}
+          selectedDestination={selectedDestination}
+          key={numOfTravelers.indexOf(currentTravelerNum)}
         />
       );
     });
@@ -83,12 +85,25 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
     }
   };
 
-  return (
+  const handleSubmit = (event) => {
+    setPassengersToState(event, getValidPassengersFromState());
+    toggleFilledOut(true);
+  };
+
+  return isFilledOut ? (
+    <Redirect to={`/destinations/${selectedDestination.id}`} />
+  ) : (
     <fieldset className="form-container">
       <legend>Voyage Planner</legend>
-      <form className="booking-form">
+      <form
+        className="booking-form"
+        onSubmit={(event) => {
+          handleSubmit(event);
+        }}
+      >
         <label className="label">
-          How many Earth days do you want to spend at your destination, { selectedDestination.name }?
+          How many Earth days do you want to spend at your destination,{" "}
+          {selectedDestination.name}?
           <br />
           <input
             className="earth-days-input"
@@ -126,11 +141,9 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
         </label>
         <div className="boarding-pass-container">{showTravelerForms()}</div>
         <br />
-          <button type="submit" className="form-button" onClick={ (event) => setPassengersToState(event, getValidPassengersFromState()) }>
-            <Link className="form-link" to={`destinations/${selectedDestination.id}`}>
-              Start My Voyage!
-            </Link>
-          </button>
+        <button type="submit" className="form-button">
+          Start My Voyage!
+        </button>
       </form>
     </fieldset>
   );
