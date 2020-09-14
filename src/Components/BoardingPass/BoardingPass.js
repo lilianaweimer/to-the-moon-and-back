@@ -1,7 +1,6 @@
 import React from "react";
 import "./BoardingPass.scss";
 import Rocket from "../../Images/rocket.svg";
-import PurpleRocket from "../../Images/rocket_purple.svg";
 import FlatLogo from "../../Images/to_the_moon_logo_dark_plum.svg";
 
 var today = new Date();
