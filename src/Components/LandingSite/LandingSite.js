@@ -3,11 +3,18 @@ import "./LandingSite.css";
 import { getLandMarks } from "../../ApiCalls";
 
 import Hyperspace from '../Hyperspace/Hyperspace';
+import AgesChart from '../Charts/AgesChart';
+import WeightsChart from '../Charts/WeightsChart';
 
 const LandingSite = ({ setTravelingState, destination, passengers }) => {
   
   const [isInHyperspace, toggleHyperspace] = useState(true);
   const [landMarks, setLandMarks] = useState([]);
+
+  const earthWeights = {};
+  const destinationWeights = {};
+  const earthAges = {};
+  const destinationAges = {};
 
   const displayLandMarks = () => {
     return landMarks.map(mark => {
@@ -23,17 +30,36 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   }
 
   const displayPassengerInfo = () => {
-    return passengers.map(passenger => {
-      return (
-        <div key={passenger.id} className="passenger-info">
-          <p>Name: {passenger.name}</p>
-          <p>Weight On Earth: {passenger.weight} lbs</p>
-          <p>Weight at {destination.name}: {Number(passenger.weight) * Number(destination.gravity) } lbs</p>
-          <p>Age on Earth: {passenger.age}</p>
-          <p>Age at {destination.name}: {Number(passenger.age) + (destination.travel.travel_time / 8760)}</p>
-        </div>
-      )
+    passengers.forEach(passenger => {
+      earthAges[passenger.name] = passenger.age;
+      destinationAges[passenger.name] = Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760));
+      earthWeights[passenger.name] = passenger.weight;
+      destinationWeights[passenger.name] = Math.floor(Number(passenger.weight) * Number(destination.gravity));
     })
+
+    return (
+      <div className='charts-container'>
+        <WeightsChart 
+          earthWeights={ earthWeights } 
+          destinationWeights={ destinationWeights }
+        />
+        <AgesChart 
+          earthAges={ earthAges } 
+          destinationAges={ destinationAges }
+        />
+      </div>
+    )
+    // return passengers.map(passenger => {
+    //   return (
+    //     <div key={passenger.id} className="passenger-info">
+    //       <p>Name: {passenger.name}</p>
+    //       <p>Weight On Earth: {passenger.weight} lbs</p>
+    //       <p>Weight at {destination.name}: {Number(passenger.weight) * Number(destination.gravity) } lbs</p>
+    //       <p>Age on Earth: {passenger.age}</p>
+    //       <p>Age at {destination.name}: {Number(passenger.age) + (destination.travel.travel_time / 8760)}</p>
+    //     </div>
+    //   )
+    // })
   }
 
   const displayDestinationInfo = () => {
