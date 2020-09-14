@@ -47,7 +47,9 @@ function App() {
   return (
     <div className="App">
       <div className="background">
-        <Background />
+        <Background 
+          isTraveling={ isTraveling }
+        />
       </div>
       <Header 
         selectedDestination={ selectedDestination }
@@ -67,6 +69,7 @@ function App() {
           render={() => <LandingSite 
             destination={selectedDestination} 
             setTravelingState={ setTravelingState }
+            passengers={ passengers }
             />} 
         />
         <Route 

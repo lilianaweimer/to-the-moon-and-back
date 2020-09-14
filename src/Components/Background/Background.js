@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import "./Background.scss";
 
 class Background extends PureComponent {
-
+  
   render() {
     return (
       <section className="background">
