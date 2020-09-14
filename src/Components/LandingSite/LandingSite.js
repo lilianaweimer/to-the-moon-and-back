@@ -11,10 +11,10 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   const [isInHyperspace, toggleHyperspace] = useState(true);
   const [landMarks, setLandMarks] = useState([]);
 
-  const earthWeights = {};
-  const destinationWeights = {};
-  const earthAges = {};
-  const destinationAges = {};
+  const earthWeights = [];
+  const destinationWeights = [];
+  const earthAges = [];
+  const destinationAges = [];
 
   const displayLandMarks = () => {
     return landMarks.map(mark => {
@@ -31,10 +31,10 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
 
   const displayPassengerInfo = () => {
     passengers.forEach(passenger => {
-      earthAges[passenger.name] = passenger.age;
-      destinationAges[passenger.name] = Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760));
-      earthWeights[passenger.name] = passenger.weight;
-      destinationWeights[passenger.name] = Math.floor(Number(passenger.weight) * Number(destination.gravity));
+      earthAges.push({ 'name': passenger.name, 'age': Number(passenger.age) });
+      destinationAges.push({ 'name': passenger.name, 'age': (Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760))) });
+      earthWeights.push({ 'name': passenger.name, 'weight': Number(passenger.weight) })
+      destinationWeights.push({ 'name': passenger.name, 'weight': (Math.floor(Number(passenger.weight) * Number(destination.gravity))) })
     })
 
     return (
@@ -42,10 +42,12 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
         <WeightsChart 
           earthWeights={ earthWeights } 
           destinationWeights={ destinationWeights }
+          destination={ destination.name }
         />
         <AgesChart 
           earthAges={ earthAges } 
           destinationAges={ destinationAges }
+          destination={ destination.name }
         />
       </div>
     )
