@@ -1,23 +1,26 @@
 .header {
   background-color: #050517;
   height: auto;
+  width: auto;
   margin-bottom: 2%;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  justify-content: left;
   padding: 1% 0 1% 0;
   border-bottom: 2px solid #adb8eb;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo-header {
   margin-left: 2em;
   height: 130px;
+  justify-self: left;
 }
 
 .back-earth-btn {
-  height: 2rem;
-  width: 222px;
+  /* justify-self: right; */
+  margin-right: 3rem;
+  height: 4rem;
+  width: 14em;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   font-family: "Montserrat", sans-serif;
   font-size: 0.7em;
