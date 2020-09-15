@@ -64,6 +64,7 @@
   border-radius: 6px;
   border: solid 3px #3D1566;
   height: fit-content;
+  width: fit-content;
 }
 
 .trav-info-title {
