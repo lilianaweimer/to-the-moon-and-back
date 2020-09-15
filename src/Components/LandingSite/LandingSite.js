@@ -50,17 +50,6 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
         />
       </div>
     )
-    // return passengers.map(passenger => {
-    //   return (
-    //     <div key={passenger.id} className="passenger-info">
-    //       <p>Name: {passenger.name}</p>
-    //       <p>Weight On Earth: {passenger.weight} lbs</p>
-    //       <p>Weight at {destination.name}: {Number(passenger.weight) * Number(destination.gravity) } lbs</p>
-    //       <p>Age on Earth: {passenger.age}</p>
-    //       <p>Age at {destination.name}: {Number(passenger.age) + (destination.travel.travel_time / 8760)}</p>
-    //     </div>
-    //   )
-    // })
   }
 
   const displayDestinationInfo = () => {

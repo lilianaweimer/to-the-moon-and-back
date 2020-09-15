@@ -9,7 +9,7 @@
 .landing-img-info {
   height: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .land-marks-container {
