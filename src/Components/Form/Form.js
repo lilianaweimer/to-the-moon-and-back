@@ -86,67 +86,75 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
   };
 
   const handleSubmit = (event) => {
-    setPassengersToState(event, getValidPassengersFromState());
+    setPassengersToState(
+      event,
+      getValidPassengersFromState(),
+      state.numberOfDays
+    );
     toggleFilledOut(true);
   };
 
-  return (selectedDestination.id ? (isFilledOut ? (
-    <Redirect to={`/destinations/${selectedDestination.id}`} />
+  return selectedDestination.id ? (
+    isFilledOut ? (
+      <Redirect to={`/destinations/${selectedDestination.id}`} />
+    ) : (
+      <fieldset className="form-container">
+        <legend>Voyage Planner</legend>
+        <form
+          className="booking-form"
+          onSubmit={(event) => {
+            handleSubmit(event);
+          }}
+        >
+          <label className="label">
+            How many Earth days do you want to spend at your destination,{" "}
+            {selectedDestination.name}?
+            <br />
+            <input
+              className="earth-days-input"
+              min="1"
+              type="number"
+              placeholder="Earth Days"
+              name="days"
+              required
+              onChange={(event) =>
+                verifyUserInput(event.target.value, "numberOfDays")
+              }
+            />
+          </label>
+          <br />
+          <label className="label">
+            How many people will be on your voyage?
+            <br />
+            <select
+              data-testid="select"
+              alt="Number of Travelers"
+              name="traveler-count"
+              className="dropdown"
+              required
+              onChange={(event) =>
+                verifyUserInput(event.target.value, "numberOfTravelers")
+              }
+            >
+              <option value={null}></option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </label>
+          <div className="boarding-pass-container">{showTravelerForms()}</div>
+          <br />
+          <button type="submit" className="form-button">
+            Start My Voyage!
+          </button>
+        </form>
+      </fieldset>
+    )
   ) : (
-    <fieldset className="form-container">
-      <legend>Voyage Planner</legend>
-      <form
-        className="booking-form"
-        onSubmit={(event) => {
-          handleSubmit(event);
-        }}
-      >
-        <label className="label">
-          How many Earth days do you want to spend at your destination,{" "}
-          {selectedDestination.name}?
-          <br />
-          <input
-            className="earth-days-input"
-            min="1"
-            type="number"
-            placeholder="Earth Days"
-            name="days"
-            required
-            onChange={(event) =>
-              verifyUserInput(event.target.value, "numberOfDays")
-            }
-          />
-        </label>
-        <br />
-        <label className="label">
-          How many people will be on your voyage?
-          <br />
-          <select
-            data-testid="select"
-            alt="Number of Travelers"
-            name="traveler-count"
-            className="dropdown"
-            required
-            onChange={(event) =>
-              verifyUserInput(event.target.value, "numberOfTravelers")
-            }
-          >
-            <option value={null}></option>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-        </label>
-        <div className="boarding-pass-container">{showTravelerForms()}</div>
-        <br />
-        <button type="submit" className="form-button">
-          Start My Voyage!
-        </button>
-      </form>
-    </fieldset>
-  )) : <Redirect to="/" />)
+    <Redirect to="/" />
+  );
 };
 
 export default Form;

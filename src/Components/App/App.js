@@ -22,6 +22,7 @@ function App() {
   const [newsArticle, setNewsArticle] = useState({});
   const [isTraveling, setIsTraveling] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [tripDays, setTripDays] = useState(0);
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
@@ -38,10 +39,15 @@ function App() {
     );
   };
 
-  const setPassengersToState = (event, incomingPassengersData) => {
+  const setPassengersToState = (
+    event,
+    incomingPassengersData,
+    incomingDays
+  ) => {
     event.preventDefault();
-
+    console.log("incoming days in app", incomingDays);
     setPassengers((passengers.passengers = incomingPassengersData));
+    setTripDays(Number(incomingDays));
   };
 
   const setTravelingState = useCallback((toggleTraveling) => {
@@ -62,57 +68,55 @@ function App() {
         selectedDestination={selectedDestination}
         isTraveling={isTraveling}
       />
-      { loading ?
-        <Loading /> :
-      (<Switch>
-        <Route
-          path="/thank-you"
-          render={() => (
-            <ThankYou
-              selectedDestination={selectedDestination}
-              setTravelingState={setTravelingState}
-            />
-          )}
-        />
-        <Route
-          path="/destinations/:id"
-          render={() => (
-            <LandingSite
-              destination={selectedDestination}
-              setTravelingState={setTravelingState}
-              passengers={passengers}
-            />
-          )}
-        />
-        <Route
-          path="/voyage-planner"
-          render={() => (
-            <Form
-              selectedDestination={selectedDestination}
-              setPassengersToState={setPassengersToState}
-            />
-          )}
-        />
-        <Route 
-          path="/:undefined"
-          render={() => (
-            <PageNotFound />
-          )}
-        />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <div className="home-page">
-              <Weather article={newsArticle} />
-              <Destinations
-                allCelestialBodies={allCelestialBodies}
-                selectDestination={selectDestination}
+      {loading ? (
+        <Loading />
+      ) : (
+        <Switch>
+          <Route
+            path="/thank-you"
+            render={() => (
+              <ThankYou
+                selectedDestination={selectedDestination}
+                setTravelingState={setTravelingState}
               />
-            </div>
-          )}
-        />
-      </Switch>)}
+            )}
+          />
+          <Route
+            path="/destinations/:id"
+            render={() => (
+              <LandingSite
+                destination={selectedDestination}
+                setTravelingState={setTravelingState}
+                passengers={passengers}
+                tripDays={tripDays}
+              />
+            )}
+          />
+          <Route
+            path="/voyage-planner"
+            render={() => (
+              <Form
+                selectedDestination={selectedDestination}
+                setPassengersToState={setPassengersToState}
+              />
+            )}
+          />
+          <Route path="/:undefined" render={() => <PageNotFound />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div className="home-page">
+                <Weather article={newsArticle} />
+                <Destinations
+                  allCelestialBodies={allCelestialBodies}
+                  selectDestination={selectDestination}
+                />
+              </div>
+            )}
+          />
+        </Switch>
+      )}
     </div>
   );
 }

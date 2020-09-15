@@ -1,23 +1,44 @@
+.land-mark-image {
+  width: 225px;
+}
+
+.slick-dots li button:before {
+  color: #adb8eb !important;
+}
+
+.destinations-title {
+  margin-bottom: 4%;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  color: white;
+}
+
 .landing-container {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  border: solid 1px pink;
 }
 
 .landing-img-info {
   height: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
-.land-marks-container {
-  border: 3px solid #ADB8EB;
-  z-index: 3;
-  height: 45%;
-  display: flex;
-  justify-content: space-around;
+.land-marks-title {
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #adb8eb;
+  letter-spacing: 0.06em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
 }
 
 .destination-landing-img {
@@ -32,66 +53,127 @@
 }
 
 .destination-info-container {
-  background-color: #ADB8EB;
-  width: 20%;
-  height: 50%;
+  margin-top: 5em;
+  width: 100%;
+  height: 60vh;
+  padding: 20px;
   border-radius: 6px;
+  letter-spacing: 0.08em;
+  font-family: "Montserrat", sans-serif;
+  align-self: center;
 }
 
-.destination-info {
-
-}
-
-.traveler-info-container {
-  background-color: #ADB8EB;
+.charts-container {
+  background-color: #adb8eb;
   border-radius: 6px;
+  border: solid 3px #3d1566;
 }
 
-.passenger-info {
-
+.trav-info-title {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .land-mark-card {
-  background-color: #ADB8EB;
-  border-right: solid 4px #adb8eb;
-  border-left: solid 4px #adb8eb;
-  width: 30%;
-  z-index: 5;
-  width: 17%;
-  height: 69%;
-  border-radius: 6px;
-  overflow: scroll;
   text-align: left;
+  border: solid 2px #adb8eb;
+  color: #adb8eb;
+  width: 65% !important;
+  height: 350px;
+  margin: 0 auto;
+  margin-bottom: 4%;
+  border-radius: 6px;
+  align-items: center;
+  overflow: scroll;
+  padding: 5% 5% 5% 5%;
 }
 
 .land-mark-name {
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-weight: 400;
-  letter-spacing: 0.08em;
-  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .land-mark-type {
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 0.08em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
 }
 
 .land-mark-image {
-  width: 30%;
+  margin: 20px 0 30px 0;
+  border-radius: 6px;
 }
 
 .land-mark-description {
-  width: 100%;
-  
+  width: 90%;
+  font-family: "Montserrat", sans-serif;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
+.Welcome-to-planet-text {
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 3 / 2;
+  border-radius: 6px;
+  background-color: #050517;
+  color: #adb8eb;
+  padding: 40px;
+  border: 2px solid #adb8eb;
+}
+.div2 {
+  grid-area: 3 / 1 / 6 / 3;
+  border-radius: 6px;
+  background-color: #050517;
+  color: #adb8eb;
+  padding-top: 55px;
+  border: 2px solid #adb8eb;
+}
+.div3 {
+  grid-area: 1 / 4 / 3 / 5;
+  border-radius: 6px;
+  background-color: #050517;
+  color: #adb8eb;
+  padding: 40px;
+  border: 2px solid #adb8eb;
+}
+.div4 {
+  grid-area: 3 / 3 / 6 / 5;
+  border-radius: 6px;
+  background-color: #050517;
+  color: #adb8eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 80px 0 80px;
+  border: 2px solid #adb8eb;
+}
+.div5 {
+  grid-area: 1 / 2 / 3 / 4;
+  border-radius: 6px;
+  border: 2px solid #adb8eb;
+  color: #adb8eb;
+}
+
+@media screen and (max-width: 1024px) {
+  /* Specific to this particular image */
   .destination-img {
     left: 50%;
-    margin-left: -512px;   /* 50% */
+    margin-left: -512px; /* 50% */
   }
 }

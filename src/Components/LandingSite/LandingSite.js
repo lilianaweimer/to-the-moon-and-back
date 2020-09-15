@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "./LandingSite.css";
 import { getLandMarks } from "../../ApiCalls";
+import Hyperspace from "../Hyperspace/Hyperspace";
+import PassengerChart from "../Charts/PassengerChart";
+import { Redirect } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import Hyperspace from '../Hyperspace/Hyperspace';
-import PassengerChart from '../Charts/PassengerChart';
-import { Redirect } from 'react-router-dom';
-
-const LandingSite = ({ setTravelingState, destination, passengers }) => {
-  
+const LandingSite = ({
+  setTravelingState,
+  destination,
+  passengers,
+  tripDays,
+}) => {
   const [isInHyperspace, toggleHyperspace] = useState(true);
   const [landMarks, setLandMarks] = useState([]);
 
@@ -17,61 +23,69 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   const earthAges = [];
   const destinationAges = [];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    centerPadding: "50px",
+    lazyLoad: "ondemand",
+    arrows: false,
+    draggable: true,
+  };
+
   const displayLandMarks = () => {
-    return landMarks.map(mark => {
+    return landMarks.map((mark) => {
       return (
         <div key={mark.id} className="land-mark-card">
           <p className="land-mark-name">{mark.name}</p>
           <p className="land-mark-type">{mark.landmark_type}</p>
-          <img src={mark.image} className="land-mark-image" alt={mark.name}/>
+          <img src={mark.image} className="land-mark-image" alt={mark.name} />
           <p className="land-mark-description">{mark.description}</p>
         </div>
-      )
-    })
-  }
+      );
+    });
+  };
 
   const displayPassengerInfo = () => {
-    passengers.forEach(passenger => {
+    passengers.forEach((passenger) => {
       names.push(passenger.name);
       earthAges.push(Number(passenger.age));
-      destinationAges.push((Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760))));
-      earthWeights.push(Number(passenger.weight))
-      destinationWeights.push((Math.floor(Number(passenger.weight) * Number(destination.gravity))));
-    })
+      destinationAges.push(
+        Math.floor(
+          Number(passenger.age) + destination.travel.travel_time / 8760
+        )
+      );
+      earthWeights.push(Number(passenger.weight));
+      destinationWeights.push(
+        Math.floor(Number(passenger.weight) * Number(destination.gravity))
+      );
+    });
 
     return (
-      <div className='charts-container'>
+      <div className="charts-container">
         <PassengerChart
-          names={ names } 
-          earthWeights={ earthWeights } 
-          destinationWeights={ destinationWeights }
-          earthAges={ earthAges } 
-          destinationAges={ destinationAges }
-          destination={ destination.name }
+          names={names}
+          earthWeights={earthWeights}
+          destinationWeights={destinationWeights}
+          earthAges={earthAges}
+          destinationAges={destinationAges}
+          destination={destination.name}
         />
       </div>
-    )
-  }
+    );
+  };
 
-  const displayDestinationInfo = () => {
-    return (
-      <div className="">
-        <p>Location: {destination.name}</p>
-        <p>Location Type: {destination.celestial_body_type}</p>
-        <p>Gravity: {destination.gravity}</p>
-        <p>Planet Day: {destination.planet_day}</p>
-        <p>Planet Year: {destination.planet_year}</p>
-        <p>Travel Distance: {destination.travel.distance}</p>
-        <p>Travel Time: {destination.travel.travel_time}</p>
-      </div>
-    )
-  }
+  const numberTransform = (n) => {
+    return String(n).replace(/(.)(?=(\d{3})+$)/g, "$1,");
+  };
 
   useEffect(() => {
     const grabLandMarks = () => {
-      getLandMarks(destination.id)
-      .then(data => setLandMarks(data));
-    }
+      getLandMarks(destination.id).then((data) => setLandMarks(data));
+    };
     grabLandMarks();
   }, [destination.id]);
 
@@ -84,24 +98,91 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    destination.id ? (isInHyperspace ? 
-    <Hyperspace /> :
-    <div className="landing-container">
-      <div className="landing-img-info">
-        <img className="destination-landing-img" src="https://res.cloudinary.com/dk-find-out/image/upload/q_80,h_800,f_auto/Nasa_Hi-res_neptune_despina_transit_combo_despinabrightened_usbm0u.jpg" alt="destination"/>
-        <section className="destination-info-container">
-          {displayDestinationInfo()}
-        </section>
-        <section className="traveler-info-container">
-          {displayPassengerInfo()}
-        </section>
+  return destination.id ? (
+    isInHyperspace ? (
+      <Hyperspace />
+    ) : (
+      <div className="landing-container">
+        <div className="landing-img-info">
+          <img
+            className="destination-landing-img"
+            src={destination.background_image}
+            alt="destination"
+          />
+          <section className="destination-info-container">
+            <div className="grid">
+              <div className="div1">
+                <article>
+                  <p>
+                    <span className="Welcome-to-planet-text">
+                      Welcome to {destination.name.toUpperCase()}
+                    </span>
+                  </p>
+                  <p>{destination.celestial_body_type.toUpperCase()}</p>
+                </article>
+                <article>
+                  <p>
+                    {`You are now ${numberTransform(
+                      Math.ceil(destination.travel.distance)
+                    )} miles
+                    from Earth.`}
+                  </p>
+                  <p>
+                    {`It has been ${numberTransform(
+                      Math.ceil(destination.travel.travel_time / 24)
+                    )} days since you left Earth.`}
+                  </p>
+                  <p>
+                    {`Your travel speed was clocked at ${numberTransform(
+                      Math.ceil(
+                        destination.travel.distance /
+                          destination.travel.travel_time
+                      )
+                    )} mph.`}
+                  </p>
+                  <hr />
+                  <h5>Gravity</h5>
+                  <p>{destination.gravity}G</p>
+                </article>
+              </div>
+              <div className="div2 land-marks-container">
+                <h3 className="land-marks-title">Landmarks</h3>
+                <Slider {...settings}>{displayLandMarks()}</Slider>
+              </div>
+              <div className="div3">
+                <h3>Your visit in Earth time</h3>
+                <p>{tripDays} Days</p>
+                <hr />
+                <h3>Your visit in {destination.name} time</h3>
+                <p>{(tripDays * destination.planet_day).toFixed(1)} Days</p>
+                {destination.planet_year && (
+                  <p>{(tripDays / destination.planet_year).toFixed(1)} Years</p>
+                )}
+                <hr />
+                <p>
+                  One day on {destination.name} is {destination.planet_day} days
+                  on Earth.
+                </p>
+                {destination.planet_year && (
+                  <p>
+                    One Year on {destination.name} is {destination.planet_year}{" "}
+                    days on Earth.
+                  </p>
+                )}
+              </div>
+              <div className="div4">
+                <p className="trav-info-title">Traveler Information</p>
+                {displayPassengerInfo()}
+              </div>
+              <div className="div5"></div>
+            </div>
+          </section>
+        </div>
       </div>
-      <div className="land-marks-container">
-        {displayLandMarks()}
-      </div>
-    </div>) : <Redirect to="/"/>
-  )
-}
+    )
+  ) : (
+    <Redirect to="/" />
+  );
+};
 
 export default LandingSite;
