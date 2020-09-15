@@ -2,7 +2,11 @@ import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
-import { getAllCelestialBodies, getRecentNews, getLandMarks } from "../../ApiCalls";
+import {
+  getAllCelestialBodies,
+  getRecentNews,
+  getLandMarks,
+} from "../../ApiCalls";
 import { act } from "react-dom/test-utils";
 jest.mock("../../ApiCalls");
 
@@ -181,12 +185,14 @@ describe("App", () => {
     });
 
     const nameInput = await waitFor(() => getByPlaceholderText("Name"));
-    const weightInput = await waitFor(() => getByPlaceholderText("Weight (lbs)"));
+    const weightInput = await waitFor(() =>
+      getByPlaceholderText("Weight (lbs)")
+    );
     const ageInput = await waitFor(() => getByPlaceholderText("Age"));
 
-    fireEvent.change(nameInput, {target: { value: "Lili" }});
-    fireEvent.change(weightInput, {target: { value: "100" }});
-    fireEvent.change(ageInput, {target: { value: "23" }});
+    fireEvent.change(nameInput, { target: { value: "Lili" } });
+    fireEvent.change(weightInput, { target: { value: "100" } });
+    fireEvent.change(ageInput, { target: { value: "23" } });
 
     act(() => {
       fireEvent.click(startVoyageBtn);
