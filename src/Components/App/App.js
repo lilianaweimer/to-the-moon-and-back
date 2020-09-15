@@ -9,6 +9,8 @@ import Background from "../Background/Background";
 import Form from "../Form/Form";
 import ThankYou from "../ThankYou/ThankYou";
 import LandingSite from "../LandingSite/LandingSite";
+import PageNotFound from "../PageNotFound/PageNotFound";
+import Loading from "../Loading/Loading";
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
@@ -19,12 +21,14 @@ function App() {
   const [passengers, setPassengers] = useState({ passengers: [] });
   const [newsArticle, setNewsArticle] = useState({});
   const [isTraveling, setIsTraveling] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getCelestialBodies = async () => {
     const celestialBodies = await getAllCelestialBodies();
     const news = await getRecentNews();
     setAllCelestialBodies(celestialBodies);
     setNewsArticle(news);
+    setLoading(false);
   };
 
   const selectDestination = (id) => {
@@ -45,6 +49,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     getCelestialBodies();
   }, []);
 
@@ -57,8 +62,9 @@ function App() {
         selectedDestination={selectedDestination}
         isTraveling={isTraveling}
       />
-
-      <Switch>
+      { loading ?
+        <Loading /> :
+      (<Switch>
         <Route
           path="/thank-you"
           render={() => (
@@ -87,6 +93,12 @@ function App() {
             />
           )}
         />
+        <Route 
+          path="/:undefined"
+          render={() => (
+            <PageNotFound />
+          )}
+        />
         <Route
           exact
           path="/"
@@ -100,7 +112,7 @@ function App() {
             </div>
           )}
         />
-      </Switch>
+      </Switch>)}
     </div>
   );
 }

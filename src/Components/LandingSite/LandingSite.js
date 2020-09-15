@@ -4,6 +4,7 @@ import { getLandMarks } from "../../ApiCalls";
 
 import Hyperspace from '../Hyperspace/Hyperspace';
 import PassengerChart from '../Charts/PassengerChart';
+import { Redirect } from 'react-router-dom';
 
 const LandingSite = ({ setTravelingState, destination, passengers }) => {
   
@@ -86,7 +87,7 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   console.log(landMarks);
 
   return (
-    isInHyperspace ? 
+    destination.id ? (isInHyperspace ? 
     <Hyperspace /> :
     <div className="landing-container">
       <div className="landing-img-info">
@@ -101,7 +102,7 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
       <div className="land-marks-container">
         {displayLandMarks()}
       </div>
-    </div>
+    </div>) : <Redirect to="/"/>
   )
 }
 
