@@ -4,7 +4,7 @@ import { getLandMarks } from "../../ApiCalls";
 
 import Hyperspace from '../Hyperspace/Hyperspace';
 import AgesChart from '../Charts/AgesChart';
-import WeightsChart from '../Charts/WeightsChart';
+import PassengerChart from '../Charts/PassengerChart';
 
 const LandingSite = ({ setTravelingState, destination, passengers }) => {
   
@@ -39,12 +39,9 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
 
     return (
       <div className='charts-container'>
-        <WeightsChart 
+        <PassengerChart 
           earthWeights={ earthWeights } 
           destinationWeights={ destinationWeights }
-          destination={ destination.name }
-        />
-        <AgesChart 
           earthAges={ earthAges } 
           destinationAges={ destinationAges }
           destination={ destination.name }
