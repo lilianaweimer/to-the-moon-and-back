@@ -9,6 +9,7 @@ import Background from "../Background/Background";
 import Form from "../Form/Form";
 import ThankYou from "../ThankYou/ThankYou";
 import LandingSite from "../LandingSite/LandingSite";
+import PageNotFound from "../PageNotFound/PageNotFound";
 import { getAllCelestialBodies, getRecentNews } from "../../ApiCalls.js";
 
 function App() {
@@ -85,6 +86,12 @@ function App() {
               selectedDestination={selectedDestination}
               setPassengersToState={setPassengersToState}
             />
+          )}
+        />
+        <Route 
+          path="/:undefined"
+          render={() => (
+            <PageNotFound />
           )}
         />
         <Route
