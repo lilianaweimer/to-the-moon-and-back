@@ -28,7 +28,7 @@ function App() {
     const news = await getRecentNews();
     setAllCelestialBodies(celestialBodies);
     setNewsArticle(news);
-    // setLoading(false);
+    setLoading(false);
   };
 
   const selectDestination = (id) => {
