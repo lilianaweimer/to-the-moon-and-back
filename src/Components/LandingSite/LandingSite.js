@@ -114,8 +114,6 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  console.log(landMarks);
-
   return destination.id ? (
     isInHyperspace ? (
       <Hyperspace />
@@ -128,7 +126,45 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
             alt="destination"
           />
           <section className="destination-info-container">
-            {displayDestinationInfo()}
+            <div class="grid">
+              <div class="div1"> </div>
+              <div class="div2"> </div>
+              <div class="div3"> </div>
+              <div class="div4"> </div>
+              <div class="div5">
+                <h5>Gravity</h5>
+                <p>{destination.gravity}G</p>
+              </div>
+              <div class="div6"> </div>
+              <div class="div7"> </div>
+            </div>
+
+            <div class="landing-grid-container">
+              <div class="landing-basic-info">
+                <p>{destination.name.toUpperCase()}</p>
+                <p>({destination.celestial_body_type.toUpperCase()})</p>
+              </div>
+              <div class="landing-travel-info"></div>
+              <p>
+                {`You are now ${numberTransform(
+                  Math.ceil(destination.travel.distance)
+                )} miles
+                  from Earth.`}
+              </p>
+              <p>
+                {`It took you ${numberTransform(
+                  Math.ceil(destination.travel.travel_time / 24)
+                )} days to arrive at ${destination.name}.`}
+              </p>
+              <p>
+                {`Your travel speed was clocked at ${numberTransform(
+                  Math.ceil(
+                    destination.travel.distance / destination.travel.travel_time
+                  )
+                )} mph.`}
+              </p>
+              <div class="landing-time-info"></div>
+            </div>
           </section>
           <section className="traveler-info-container">
             <p className="trav-info-title">Traveler Information</p>
