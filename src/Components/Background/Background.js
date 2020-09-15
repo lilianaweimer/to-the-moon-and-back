@@ -6,7 +6,7 @@ class Background extends PureComponent {
   render() {
     return (
       <section className="background">
-        <div id="stars"></div>
+        <div id="stars" data-testid="star-div"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
       </section>

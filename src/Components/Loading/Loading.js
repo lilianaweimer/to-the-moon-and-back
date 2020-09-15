@@ -7,7 +7,7 @@ function Loading() {
     <div className="loading-page">
       <p className="loading-text">Loading...</p>
       <hr className="loading-text-hr" />
-      <div id="loading-rocket-ce">
+      <div id="loading-rocket-ce" data-testid="rocket-animation">
         <div className="rocket-ce">
           <span>
             <i className="wing-top"></i>
