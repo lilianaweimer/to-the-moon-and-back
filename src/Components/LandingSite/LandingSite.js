@@ -3,7 +3,6 @@ import "./LandingSite.css";
 import { getLandMarks } from "../../ApiCalls";
 
 import Hyperspace from '../Hyperspace/Hyperspace';
-import AgesChart from '../Charts/AgesChart';
 import PassengerChart from '../Charts/PassengerChart';
 
 const LandingSite = ({ setTravelingState, destination, passengers }) => {
@@ -11,6 +10,7 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   const [isInHyperspace, toggleHyperspace] = useState(true);
   const [landMarks, setLandMarks] = useState([]);
 
+  const names = [];
   const earthWeights = [];
   const destinationWeights = [];
   const earthAges = [];
@@ -31,15 +31,17 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
 
   const displayPassengerInfo = () => {
     passengers.forEach(passenger => {
-      earthAges.push({ 'name': passenger.name, 'age': Number(passenger.age) });
-      destinationAges.push({ 'name': passenger.name, 'age': (Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760))) });
-      earthWeights.push({ 'name': passenger.name, 'weight': Number(passenger.weight) })
-      destinationWeights.push({ 'name': passenger.name, 'weight': (Math.floor(Number(passenger.weight) * Number(destination.gravity))) })
+      names.push(passenger.name);
+      earthAges.push(Number(passenger.age));
+      destinationAges.push((Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760))));
+      earthWeights.push(Number(passenger.weight))
+      destinationWeights.push((Math.floor(Number(passenger.weight) * Number(destination.gravity))));
     })
 
     return (
       <div className='charts-container'>
-        <PassengerChart 
+        <PassengerChart
+          names={ names } 
           earthWeights={ earthWeights } 
           destinationWeights={ destinationWeights }
           earthAges={ earthAges } 
