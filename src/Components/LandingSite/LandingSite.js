@@ -3,11 +3,18 @@ import "./LandingSite.css";
 import { getLandMarks } from "../../ApiCalls";
 
 import Hyperspace from '../Hyperspace/Hyperspace';
+import PassengerChart from '../Charts/PassengerChart';
 
 const LandingSite = ({ setTravelingState, destination, passengers }) => {
   
   const [isInHyperspace, toggleHyperspace] = useState(true);
   const [landMarks, setLandMarks] = useState([]);
+
+  const names = [];
+  const earthWeights = [];
+  const destinationWeights = [];
+  const earthAges = [];
+  const destinationAges = [];
 
   const displayLandMarks = () => {
     return landMarks.map(mark => {
@@ -23,17 +30,26 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
   }
 
   const displayPassengerInfo = () => {
-    return passengers.map(passenger => {
-      return (
-        <div key={passenger.id} className="passenger-info">
-          <p>Name: {passenger.name}</p>
-          <p>Weight On Earth: {passenger.weight} lbs</p>
-          <p>Weight at {destination.name}: {Number(passenger.weight) * Number(destination.gravity) } lbs</p>
-          <p>Age on Earth: {passenger.age}</p>
-          <p>Age at {destination.name}: {Number(passenger.age) + (destination.travel.travel_time / 8760)}</p>
-        </div>
-      )
+    passengers.forEach(passenger => {
+      names.push(passenger.name);
+      earthAges.push(Number(passenger.age));
+      destinationAges.push((Math.floor(Number(passenger.age) + (destination.travel.travel_time / 8760))));
+      earthWeights.push(Number(passenger.weight))
+      destinationWeights.push((Math.floor(Number(passenger.weight) * Number(destination.gravity))));
     })
+
+    return (
+      <div className='charts-container'>
+        <PassengerChart
+          names={ names } 
+          earthWeights={ earthWeights } 
+          destinationWeights={ destinationWeights }
+          earthAges={ earthAges } 
+          destinationAges={ destinationAges }
+          destination={ destination.name }
+        />
+      </div>
+    )
   }
 
   const displayDestinationInfo = () => {

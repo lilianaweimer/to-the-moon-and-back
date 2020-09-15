@@ -9,7 +9,7 @@
 .landing-img-info {
   height: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .land-marks-container {
@@ -44,8 +44,6 @@
 
 .traveler-info-container {
   background-color: #ADB8EB;
-  width: 20%;
-  height: 40%;
   border-radius: 6px;
 }
 
