@@ -1,5 +1,5 @@
-.wall{
-  background: url('../../Images/hyperspace.png');
+.wall {
+  background: url("../../Images/hyperspace.png");
   background-size: cover;
 }
 
@@ -14,7 +14,7 @@
 .hyperspace-rocket {
   position: relative;
   z-index: 10;
-  width: 50px;
+  width: 2px;
   height: auto;
   animation: rocket-move 6s;
   bottom: -500px;
@@ -23,13 +23,14 @@
 
 @keyframes rocket-move {
   0% {
-    transform: rotate(-55deg) scale(4);
+    transform: rotate(-55deg) scale(120);
   }
   50% {
-    transform: translateX(-200px) rotate(25deg) scale(2);
+    transform: translateX(-200px) rotate(25deg) scale(80);
   }
   98% {
     opacity: 1;
+    tranform: scale(30);
   }
   100% {
     bottom: 0px;
@@ -89,16 +90,16 @@
 }
 
 @keyframes move {
-  0%{
+  0% {
     transform: translateZ(-500px) rotate(0deg);
   }
-  100%{
+  100% {
     transform: translateZ(500px) rotate(0deg);
   }
 }
 
 @keyframes fade {
-  0%{
+  0% {
     opacity: 0;
   }
   25% {
@@ -107,7 +108,7 @@
   75% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }
