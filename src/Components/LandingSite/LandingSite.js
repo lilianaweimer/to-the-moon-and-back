@@ -126,54 +126,49 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
             alt="destination"
           />
           <section className="destination-info-container">
-            <div class="grid">
-              <div class="div1"> </div>
-              <div class="div2"> </div>
-              <div class="div3"> </div>
-              <div class="div4"> </div>
-              <div class="div5">
-                <h5>Gravity</h5>
-                <p>{destination.gravity}G</p>
+            <div className="grid">
+              <div className="div1">
+                <article>
+                  <p>Welcome to {destination.name.toUpperCase()}</p>
+                  <p>{destination.celestial_body_type.toUpperCase()}</p>
+                </article>
+                <article>
+                  <p>
+                    {`You are now ${numberTransform(
+                      Math.ceil(destination.travel.distance)
+                    )} miles
+                    from Earth.`}
+                  </p>
+                  <p>
+                    {`It has been ${numberTransform(
+                      Math.ceil(destination.travel.travel_time / 24)
+                    )} days since you left Earth.`}
+                  </p>
+                  <p>
+                    {`Your travel speed was clocked at ${numberTransform(
+                      Math.ceil(
+                        destination.travel.distance /
+                          destination.travel.travel_time
+                      )
+                    )} mph.`}
+                  </p>
+                  <hr />
+                  <h5>Gravity</h5>
+                  <p>{destination.gravity}G</p>
+                </article>
               </div>
-              <div class="div6"> </div>
-              <div class="div7"> </div>
-            </div>
-
-            <div class="landing-grid-container">
-              <div class="landing-basic-info">
-                <p>{destination.name.toUpperCase()}</p>
-                <p>({destination.celestial_body_type.toUpperCase()})</p>
+              <div className="div2 land-marks-container">
+                <h3 className="land-marks-title">Landmarks</h3>
+                <Slider {...settings}>{displayLandMarks()}</Slider>
               </div>
-              <div class="landing-travel-info"></div>
-              <p>
-                {`You are now ${numberTransform(
-                  Math.ceil(destination.travel.distance)
-                )} miles
-                  from Earth.`}
-              </p>
-              <p>
-                {`It took you ${numberTransform(
-                  Math.ceil(destination.travel.travel_time / 24)
-                )} days to arrive at ${destination.name}.`}
-              </p>
-              <p>
-                {`Your travel speed was clocked at ${numberTransform(
-                  Math.ceil(
-                    destination.travel.distance / destination.travel.travel_time
-                  )
-                )} mph.`}
-              </p>
-              <div class="landing-time-info"></div>
+              <div className="div3"></div>
+              <div className="div4">
+                <p className="trav-info-title">Traveler Information</p>
+                {displayPassengerInfo()}
+              </div>
+              <div className="div5"></div>
             </div>
           </section>
-          <section className="traveler-info-container">
-            <p className="trav-info-title">Traveler Information</p>
-            {displayPassengerInfo()}
-          </section>
-        </div>
-        <div className="land-marks-container">
-          <h3 className="land-marks-title">Landmarks</h3>
-          <Slider {...settings}>{displayLandMarks()}</Slider>
         </div>
       </div>
     )
