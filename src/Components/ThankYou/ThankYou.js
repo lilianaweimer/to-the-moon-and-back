@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./ThankYou.css";
 import Hyperspace from '../Hyperspace/Hyperspace';
 
 function ThankYou({ selectedDestination, setTravelingState }) {
 
   const [isInHyperspace, toggleHyperspace] = useState(true);
+
+
 
   useEffect(() => {
     setTravelingState(false);
@@ -17,7 +19,8 @@ function ThankYou({ selectedDestination, setTravelingState }) {
   }, []);
 
   return (
-    isInHyperspace ? 
+    selectedDestination.id ? 
+    (isInHyperspace ? 
     <Hyperspace /> :
     <div className="thank-you-div">
       <img src={require("../../Images/hyperspace-rocket.svg")} className="rocket-img" alt="rocket"/>
@@ -25,7 +28,8 @@ function ThankYou({ selectedDestination, setTravelingState }) {
       <Link to="/">
         <button className="back-to-earth-btn">Go On Another Voyage!</button>
       </Link>
-    </div>
+    </div>) 
+    : (<Redirect to="/" />)
   )
 }
 
