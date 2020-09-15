@@ -90,7 +90,7 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
     toggleFilledOut(true);
   };
 
-  return isFilledOut ? (
+  return (selectedDestination.id ? (isFilledOut ? (
     <Redirect to={`/destinations/${selectedDestination.id}`} />
   ) : (
     <fieldset className="form-container">
@@ -146,7 +146,7 @@ const Form = ({ selectedDestination, setPassengersToState }) => {
         </button>
       </form>
     </fieldset>
-  );
+  )) : <Redirect to="/" />)
 };
 
 export default Form;
