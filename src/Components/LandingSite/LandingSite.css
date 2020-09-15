@@ -1,8 +1,36 @@
+.land-marks-container {
+  /* margin: 40px; */
+  border: solid 2px #adb8eb;
+  padding: 2%;
+  background-color: #050517;
+  border-radius: 6px;
+  width: 45%;
+  align-self: center;
+}
+
+.land-mark-image {
+  width: 225px;
+}
+
+.slick-dots li button:before {
+  color: #adb8eb !important;
+}
+
+.destinations-title {
+  margin-bottom: 4%;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  color: white;
+}
+
 .landing-container {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  /* padding: 7em 7em 7em 7em; */
 }
 
 .landing-img-info {
@@ -13,24 +41,27 @@
   padding-right: 2%;
 }
 
-.land-marks-container {
+/* .land-marks-container {
   z-index: 3;
   height: 45%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2%;
-}
+  height: 350px;
+  width: 500px;
+  align-self: center;
+  justify-self: center;
+} */
 
 .land-marks-title {
   font-weight: 400;
-  font-size: 1.5em;
-  border: solid 3px #3D1566;
-  padding: 1%;
-  background-color: #ADB8EB;
-  border-radius: 6px;
-  letter-spacing: 0.08em;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  color: #adb8eb;
+  letter-spacing: 0.06em;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
 }
 
@@ -46,61 +77,74 @@
 }
 
 .destination-info-container {
-  background-color: #ADB8EB;
+  background-color: #adb8eb;
   width: 20%;
   height: 50%;
   border-radius: 6px;
-  border: solid 3px #3D1566;
+  border: solid 3px #3d1566;
   letter-spacing: 0.08em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .destination-info {
-
 }
 
 .traveler-info-container {
-  background-color: #ADB8EB;
+  background-color: #adb8eb;
   border-radius: 6px;
-  border: solid 3px #3D1566;
+  border: solid 3px #3d1566;
   height: fit-content;
   width: fit-content;
 }
 
 .trav-info-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.land-marks-section {
+/* .land-marks-section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .passenger-info {
+} */
 
-}
+/* .land-mark-card {
+  background-color: #adb8eb;
+  /* z-index: 5; */
+/* width: 7em;
+  height: 7em;
+  border-radius: 6px;
+  text-align: left;
+  border: solid 3px #3d1566;
+  padding: 1%;
+} */
 
 .land-mark-card {
-  background-color: #ADB8EB;
-  width: 30%;
-  z-index: 5;
-  width: 17%;
-  height: 69%;
-  border-radius: 6px;
-  overflow: scroll;
+  /* display: flex;
+  flex-direction: column; */
   text-align: left;
-  border: solid 3px #3D1566;
-  padding: 1%;
+  background-color: #adb8eb;
+  width: 45% !important;
+  height: 350px;
+  margin: 0 auto;
+  margin-bottom: 4%;
+  border-radius: 6px;
+  border-right: solid 4px #adb8eb;
+  border-left: solid 4px #adb8eb;
+  align-items: center;
+  overflow: scroll;
+  padding: 5% 5% 5% 5%;
 }
 
 .land-mark-name {
-  font-size: 1.8em;
+  font-size: 1.6em;
   font-weight: 400;
-  letter-spacing: 0.08em;
-  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   margin: 0;
 }
@@ -109,24 +153,25 @@
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 0.08em;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
 }
 
-.land-mark-image {
-  width: 100%;
+/* .land-mark-image {
+  width: 90%;
   margin: 0 auto;
   border-radius: 6px;
-}
+} */
 
 .land-mark-description {
-  width: 100%;
-  font-family: 'Montserrat', sans-serif;
+  width: 90%;
+  font-family: "Montserrat", sans-serif;
 }
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
+@media screen and (max-width: 1024px) {
+  /* Specific to this particular image */
   .destination-img {
     left: 50%;
-    margin-left: -512px;   /* 50% */
+    margin-left: -512px; /* 50% */
   }
 }
