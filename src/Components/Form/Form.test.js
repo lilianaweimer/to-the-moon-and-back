@@ -62,4 +62,33 @@ describe("Form", () => {
 
     expect(queryByText("Boarding Pass")).not.toBeInTheDocument();
     });
+
+    it("Should be able to submit form when completely filled out", () => {
+      const mockStartVoyage = jest.fn(e => e.preventDefault());
+
+      const { getByText, getByPlaceholderText, getByTestId } = render(
+        <MemoryRouter>
+          <Form 
+            selectedDestination={mockSelectedDestination} 
+            setPassengersToState={mockStartVoyage}
+          />
+        </MemoryRouter>
+      );
+
+      const daysInput = getByPlaceholderText("Earth Days");
+
+      fireEvent.change(daysInput, {target: {value: "5"}});
+      fireEvent.change(getByTestId("select"), { target: {value: 1}});
+
+      fireEvent.change(getByPlaceholderText("Name"), {target: {value: "Lili"}});
+      fireEvent.change(getByPlaceholderText("Weight (lbs)"), {target: {value: "100"}});
+      fireEvent.change(getByPlaceholderText("Age"), {target: {value: "23"}});
+
+      const button = getByText("Start My Voyage!");
+
+      fireEvent.click(button);
+
+      expect(mockStartVoyage).toHaveBeenCalledTimes(1);
+
+    });
 });

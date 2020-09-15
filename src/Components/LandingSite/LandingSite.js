@@ -84,8 +84,6 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  console.log(landMarks);
-
   return (
     destination.id ? (isInHyperspace ? 
     <Hyperspace /> :
