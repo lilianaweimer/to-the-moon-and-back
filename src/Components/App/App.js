@@ -62,57 +62,54 @@ function App() {
         selectedDestination={selectedDestination}
         isTraveling={isTraveling}
       />
-      { loading ?
-        <Loading /> :
-      (<Switch>
-        <Route
-          path="/thank-you"
-          render={() => (
-            <ThankYou
-              selectedDestination={selectedDestination}
-              setTravelingState={setTravelingState}
-            />
-          )}
-        />
-        <Route
-          path="/destinations/:id"
-          render={() => (
-            <LandingSite
-              destination={selectedDestination}
-              setTravelingState={setTravelingState}
-              passengers={passengers}
-            />
-          )}
-        />
-        <Route
-          path="/voyage-planner"
-          render={() => (
-            <Form
-              selectedDestination={selectedDestination}
-              setPassengersToState={setPassengersToState}
-            />
-          )}
-        />
-        <Route 
-          path="/:undefined"
-          render={() => (
-            <PageNotFound />
-          )}
-        />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <div className="home-page">
-              <Weather article={newsArticle} />
-              <Destinations
-                allCelestialBodies={allCelestialBodies}
-                selectDestination={selectDestination}
+      {loading ? (
+        <Loading />
+      ) : (
+        <Switch>
+          <Route
+            path="/thank-you"
+            render={() => (
+              <ThankYou
+                selectedDestination={selectedDestination}
+                setTravelingState={setTravelingState}
               />
-            </div>
-          )}
-        />
-      </Switch>)}
+            )}
+          />
+          <Route
+            path="/destinations/:id"
+            render={() => (
+              <LandingSite
+                destination={selectedDestination}
+                setTravelingState={setTravelingState}
+                passengers={passengers}
+              />
+            )}
+          />
+          <Route
+            path="/voyage-planner"
+            render={() => (
+              <Form
+                selectedDestination={selectedDestination}
+                setPassengersToState={setPassengersToState}
+              />
+            )}
+          />
+          <Route path="/:undefined" render={() => <PageNotFound />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div className="home-page">
+                <Weather article={newsArticle} />
+                <Destinations
+                  allCelestialBodies={allCelestialBodies}
+                  selectDestination={selectDestination}
+                />
+              </div>
+            )}
+          />
+        </Switch>
+      )}
     </div>
   );
 }
