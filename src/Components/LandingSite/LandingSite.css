@@ -3,21 +3,35 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  border: solid 1px pink;
 }
 
 .landing-img-info {
   height: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .land-marks-container {
-  border: 3px solid #ADB8EB;
   z-index: 3;
   height: 45%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2%;
+}
+
+.land-marks-title {
+  font-weight: 400;
+  font-size: 1.5em;
+  border: solid 3px #3D1566;
+  padding: 1%;
+  background-color: #ADB8EB;
+  border-radius: 6px;
+  letter-spacing: 0.08em;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
 }
 
 .destination-landing-img {
@@ -36,6 +50,9 @@
   width: 20%;
   height: 50%;
   border-radius: 6px;
+  border: solid 3px #3D1566;
+  letter-spacing: 0.08em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .destination-info {
@@ -45,6 +62,20 @@
 .traveler-info-container {
   background-color: #ADB8EB;
   border-radius: 6px;
+  border: solid 3px #3D1566;
+  height: fit-content;
+}
+
+.trav-info-title {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.land-marks-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .passenger-info {
@@ -53,8 +84,6 @@
 
 .land-mark-card {
   background-color: #ADB8EB;
-  border-right: solid 4px #adb8eb;
-  border-left: solid 4px #adb8eb;
   width: 30%;
   z-index: 5;
   width: 17%;
@@ -62,6 +91,8 @@
   border-radius: 6px;
   overflow: scroll;
   text-align: left;
+  border: solid 3px #3D1566;
+  padding: 1%;
 }
 
 .land-mark-name {
@@ -70,6 +101,7 @@
   letter-spacing: 0.08em;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .land-mark-type {
@@ -81,12 +113,14 @@
 }
 
 .land-mark-image {
-  width: 30%;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 6px;
 }
 
 .land-mark-description {
   width: 100%;
-  
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */

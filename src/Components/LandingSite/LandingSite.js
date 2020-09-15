@@ -57,13 +57,17 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
       <div className="">
         <p>Location: {destination.name}</p>
         <p>Location Type: {destination.celestial_body_type}</p>
-        <p>Gravity: {destination.gravity}</p>
+        <p>Gravity: {destination.gravity}ɡ</p>
         <p>Planet Day: {destination.planet_day}</p>
-        <p>Planet Year: {destination.planet_year}</p>
-        <p>Travel Distance: {destination.travel.distance}</p>
-        <p>Travel Time: {destination.travel.travel_time}</p>
+        { destination.planet_year && <p>Planet Year: {destination.planet_year}</p>}
+        <p>Travel Distance: {numberTransform(Math.ceil(destination.travel.distance))} Miles</p>
+        <p>Travel Time: {numberTransform(Math.ceil(destination.travel.travel_time))} Hrs</p>
       </div>
     )
+  }
+
+  const numberTransform = (n) => {
+    return String(n).replace(/(.)(?=(\d{3})+$)/g,'$1,')
   }
 
   useEffect(() => {
@@ -95,11 +99,15 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
           {displayDestinationInfo()}
         </section>
         <section className="traveler-info-container">
+          <p className="trav-info-title">Traveler Information</p>
           {displayPassengerInfo()}
         </section>
       </div>
       <div className="land-marks-container">
-        {displayLandMarks()}
+        <p className="land-marks-title">Landmarks:</p>
+        <section className="land-marks-section">
+          {displayLandMarks()}
+        </section>
       </div>
     </div>
   )
