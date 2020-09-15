@@ -8,7 +8,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const LandingSite = ({ setTravelingState, destination, passengers }) => {
+const LandingSite = ({
+  setTravelingState,
+  destination,
+  passengers,
+  tripDays,
+}) => {
   const [isInHyperspace, toggleHyperspace] = useState(true);
   const [landMarks, setLandMarks] = useState([]);
 
@@ -26,8 +31,9 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
     slidesToScroll: 1,
     adaptiveHeight: true,
     centerPadding: "50px",
-    variabkeWidth: true,
     lazyLoad: "ondemand",
+    arrows: false,
+    draggable: true,
   };
 
   const displayLandMarks = () => {
@@ -72,28 +78,6 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
     );
   };
 
-  const displayDestinationInfo = () => {
-    return (
-      <div className="">
-        <p>Location: {destination.name}</p>
-        <p>Location Type: {destination.celestial_body_type}</p>
-        <p>Gravity: {destination.gravity}ɡ</p>
-        <p>Planet Day: {destination.planet_day}</p>
-        {destination.planet_year && (
-          <p>Planet Year: {destination.planet_year}</p>
-        )}
-        <p>
-          Travel Distance:{" "}
-          {numberTransform(Math.ceil(destination.travel.distance))} Miles
-        </p>
-        <p>
-          Travel Time:{" "}
-          {numberTransform(Math.ceil(destination.travel.travel_time))} Hrs
-        </p>
-      </div>
-    );
-  };
-
   const numberTransform = (n) => {
     return String(n).replace(/(.)(?=(\d{3})+$)/g, "$1,");
   };
@@ -122,14 +106,18 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
         <div className="landing-img-info">
           <img
             className="destination-landing-img"
-            src="https://res.cloudinary.com/dk-find-out/image/upload/q_80,h_800,f_auto/Nasa_Hi-res_neptune_despina_transit_combo_despinabrightened_usbm0u.jpg"
+            src={destination.background_image}
             alt="destination"
           />
           <section className="destination-info-container">
             <div className="grid">
               <div className="div1">
                 <article>
-                  <p>Welcome to {destination.name.toUpperCase()}</p>
+                  <p>
+                    <span className="Welcome-to-planet-text">
+                      Welcome to {destination.name.toUpperCase()}
+                    </span>
+                  </p>
                   <p>{destination.celestial_body_type.toUpperCase()}</p>
                 </article>
                 <article>
@@ -161,7 +149,27 @@ const LandingSite = ({ setTravelingState, destination, passengers }) => {
                 <h3 className="land-marks-title">Landmarks</h3>
                 <Slider {...settings}>{displayLandMarks()}</Slider>
               </div>
-              <div className="div3"></div>
+              <div className="div3">
+                <h3>Your visit in Earth time</h3>
+                <p>{tripDays} Days</p>
+                <hr />
+                <h3>Your visit in {destination.name} time</h3>
+                <p>{(tripDays * destination.planet_day).toFixed(1)} Days</p>
+                {destination.planet_year && (
+                  <p>{(tripDays / destination.planet_year).toFixed(1)} Years</p>
+                )}
+                <hr />
+                <p>
+                  One day on {destination.name} is {destination.planet_day} days
+                  on Earth.
+                </p>
+                {destination.planet_year && (
+                  <p>
+                    One Year on {destination.name} is {destination.planet_year}{" "}
+                    days on Earth.
+                  </p>
+                )}
+              </div>
               <div className="div4">
                 <p className="trav-info-title">Traveler Information</p>
                 {displayPassengerInfo()}
