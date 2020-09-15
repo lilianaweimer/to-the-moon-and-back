@@ -7,19 +7,19 @@ function Loading() {
     <div className="loading-page">
       <p className="loading-text">Loading...</p>
       <div id="loading-rocket-ce">
-        <div class="rocket-ce">
+        <div className="rocket-ce">
           <span>
-            <i class="wing-top"></i>
-            <i class="wing-bottom"></i>
-            <i class="flame"></i>
-            <i class="wastes">
+            <i className="wing-top"></i>
+            <i className="wing-bottom"></i>
+            <i className="flame"></i>
+            <i className="wastes">
               <i></i>
               <i></i>
               <i></i>
               <i></i>
               <i></i>
             </i>
-            <i class="lightspeed">
+            <i className="lightspeed">
               <i></i>
               <i></i>
               <i></i>
