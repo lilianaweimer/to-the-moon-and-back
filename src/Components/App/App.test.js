@@ -3,6 +3,7 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "./App";
 import { getAllCelestialBodies, getRecentNews, getLandMarks } from "../../ApiCalls";
+import { act } from "react-dom/test-utils";
 jest.mock("../../ApiCalls");
 
 describe("App", () => {
@@ -155,6 +156,45 @@ describe("App", () => {
     expect(howManyPeople).toBeInTheDocument();
     expect(startVoyageBtn).toBeInTheDocument();
     expect(destinationName).not.toBeInTheDocument();
+  });
+
+  it("Should be able to select a destination, fill out the form, and see the hyperspace animation", async () => {
+    getAllCelestialBodies.mockResolvedValue(mockGetAllCelestialBodies);
+    getLandMarks.mockResolvedValue(mockSunLandMarks);
+
+    const { getByText, getByTestId, getByPlaceholderText, getByAltText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const destinationBtn = await waitFor(() => getByTestId("9"));
+
+    fireEvent.click(destinationBtn);
+
+    const daysInput = await waitFor(() => getByPlaceholderText("Earth Days"));
+    const startVoyageBtn = await waitFor(() => getByText("Start My Voyage!"));
+
+    act(() => {
+      fireEvent.change(daysInput, { target: { value: "5" } });
+      fireEvent.change(getByTestId("select"), { target: { value: 1 } });
+    });
+
+    const nameInput = await waitFor(() => getByPlaceholderText("Name"));
+    const weightInput = await waitFor(() => getByPlaceholderText("Weight (lbs)"));
+    const ageInput = await waitFor(() => getByPlaceholderText("Age"));
+
+    fireEvent.change(nameInput, {target: { value: "Lili" }});
+    fireEvent.change(weightInput, {target: { value: "100" }});
+    fireEvent.change(ageInput, {target: { value: "23" }});
+
+    act(() => {
+      fireEvent.click(startVoyageBtn);
+    });
+
+    const rocket = getByAltText("a rocket flying through space");
+
+    expect(rocket).toBeInTheDocument();
   });
 
   it.skip("Should be able to select a destination, fill out the form, and see the Landing site page", async () => {
