@@ -19,7 +19,24 @@ describe("ThankYou", () => {
     };
   });
 
-  it.skip("Should display a rocket image, thank you message, and a button, if there is a selected destination", () => {
+  it("Should display a hyperspace animation if there is a selected destination", () => {
+    const mockSetTravelingState = jest.fn();
+
+    const { getByAltText } = render(
+      <MemoryRouter>
+        <ThankYou 
+          selectedDestination={mockSelectedDestination}
+          setTravelingState={mockSetTravelingState}
+        />
+      </MemoryRouter>
+    );
+
+    const rocket = getByAltText("a rocket flying through space");
+
+    expect(rocket).toBeInTheDocument();
+  })
+
+  it.skip("Should display a rocket image, thank you message, and a button, if there is a selected destination and after the hyperspace animation has finished", () => {
     const mockSetTravelingState = jest.fn();
 
     const { getByText, getByAltText } = render(
