@@ -22,10 +22,12 @@ function Weather({ article }) {
     <article className='weather'>
       <p className='recent-news'>Recent Space News</p>
       <img className='news-image' src={article.featured_image} alt={article.title}/>
+      <hr className='news-hr'/>
       <div className='news-title'>
         <h3>{article.title}</h3>
         <p className='news-date'>{showDate()}</p>
       </div>
+      <hr className='news-hr'/>      
       <button onClick={btnClick} className='news-btn'>Learn More</button>
     </article>
   )
