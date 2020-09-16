@@ -17,30 +17,6 @@ View locally:
 - Visit the application at `localhost:3000` in your browser
 - To stop the server, enter `control + c` in your terminal
 
-## Goals and Objectives:
-- Create a fun, immersive experience
-- Learn a few new technologies and tools:
-	- React Hooks
-	- CSS animation
-	- Chart.js
-- Work collaboratively with back-end students
-- Write a robust test suite
-
-## Technologies Used:
-- React (with Hooks)
-- SASS (SCSS)
-- Slick Slider (React Slick)
-- Chart.js 
-- Travis CI
-- Netlify
-- React Testing Library
-- Jest
-
-## Contributors
-- [John Watterson](https://github.com/infamouskeyduster)
-- [Léah Winters](https://github.com/LeahWinters)
-- [Liliana Weimer](https://github.com/lilianaweimer)
-
 ## Images
 
 <img width="1904" alt="to_the_moon_ _back_1" src="https://user-images.githubusercontent.com/49289426/93398491-ead66e80-f838-11ea-82a2-7525ccbf5fa0.png">
@@ -60,5 +36,29 @@ View locally:
 <img width="1904" alt="to_the_moon_ _back_8" src="https://user-images.githubusercontent.com/49289426/93398742-61736c00-f839-11ea-9c74-4eb358a66266.png">
 
 <img width="1904" alt="to_the_moon_ _back_9" src="https://user-images.githubusercontent.com/49289426/93398772-6df7c480-f839-11ea-96b8-f22d603d594e.png">
+
+## Contributors
+- [John Watterson](https://github.com/infamouskeyduster)
+- [Léah Winters](https://github.com/LeahWinters)
+- [Liliana Weimer](https://github.com/lilianaweimer)
+
+## Goals and Objectives:
+- Create a fun, immersive experience
+- Learn a few new technologies and tools:
+	- React Hooks
+	- CSS animation
+	- Chart.js
+- Work collaboratively with back-end students
+- Write a robust test suite
+
+## Technologies Used:
+- React (with Hooks)
+- SASS (SCSS)
+- Slick Slider (React Slick)
+- Chart.js 
+- Travis CI
+- Netlify
+- React Testing Library
+- Jest
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
