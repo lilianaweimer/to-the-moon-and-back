@@ -16,6 +16,9 @@
   z-index: 10;
   width: 2px;
   height: auto;
+  -webkit-animation: rocket-move 6s;
+  -moz-animation: rocket-move 6s;
+  -o-animation: rocket-move 6s;
   animation: rocket-move 6s;
   bottom: -500px;
   right: 500px;
