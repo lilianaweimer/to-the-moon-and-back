@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import Logo from "../../Images/to_the_moon_logo_full_color.svg";
 
-function Header({ isTraveling }) {
+function Header({ isTraveling, setTravelingState }) {
   return (
     <div className="header">
       <img 
@@ -18,6 +18,7 @@ function Header({ isTraveling }) {
             src={Logo}
             alt="To the Moon & Back logo"
             className="logo-header"
+            onClick={() => setTravelingState(false)}
           />
         </Link>
       </section>
