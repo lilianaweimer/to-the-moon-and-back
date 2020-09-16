@@ -128,21 +128,19 @@ const LandingSite = ({
                     from Earth.`}
                   </p>
                   <p>
-                    {`It has been ${numberTransform(
+                    {`It took you ${numberTransform(
                       Math.ceil(destination.travel.travel_time / 24)
-                    )} days since you left Earth.`}
-                  </p>
-                  <p>
-                    {`Your travel speed was clocked at ${numberTransform(
+                    )} days to get to ${destination.name} traveling at ${numberTransform(
                       Math.ceil(
                         destination.travel.distance /
                           destination.travel.travel_time
                       )
-                    )} mph.`}
+                    )} miles per hour!`}
                   </p>
-                  <hr />
+                  <hr className='landing-hr' />
                   <h5>Gravity</h5>
                   <p>{destination.gravity}G</p>
+                  <p>That is {(destination.gravity * 100).toFixed(0)}% of Earth's gravity!</p>
                 </article>
               </div>
               <div className="div2 land-marks-container">
@@ -151,21 +149,21 @@ const LandingSite = ({
               </div>
               <div className="div3">
                 <h3>Your visit in Earth time</h3>
-                <p>{tripDays} Days</p>
-                <hr />
+                <p>{tripDays} days</p>
+                <hr className='landing-hr' />
                 <h3>Your visit in {destination.name} time</h3>
-                <p>{(tripDays * destination.planet_day).toFixed(1)} Days</p>
+                <p>{(tripDays / destination.planet_day).toFixed(1)} days</p>
                 {destination.planet_year && (
-                  <p>{(tripDays / destination.planet_year).toFixed(1)} Years</p>
+                  <p>{(tripDays / destination.planet_year).toFixed(1)} years</p>
                 )}
-                <hr />
+                <hr className='landing-hr' />
                 <p>
                   One day on {destination.name} is {destination.planet_day} days
                   on Earth.
                 </p>
                 {destination.planet_year && (
                   <p>
-                    One Year on {destination.name} is {destination.planet_year}{" "}
+                    One year on {destination.name} is {destination.planet_year}{" "}
                     days on Earth.
                   </p>
                 )}
@@ -174,7 +172,11 @@ const LandingSite = ({
                 <p className="trav-info-title">Traveler Information</p>
                 {displayPassengerInfo()}
               </div>
-              <div className="div5"></div>
+              <div className="div5">
+                <span className='window-span'>
+                  Your view from crew quarters.
+                </span>
+              </div>
             </div>
           </section>
         </div>

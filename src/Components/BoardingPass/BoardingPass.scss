@@ -43,8 +43,7 @@ $content_width: 45%;
 .cards_wrapper {
   text-align: center;
   padding-top: 20px;
-  width: 35%;
-  // height: 85%;
+  width: 350px;
 }
 
 .card {
@@ -145,7 +144,7 @@ $content_width: 45%;
 
       &.trip_from {
         text-align: center;
-        width: 35%;
+        width: fit-content;
 
         h2 {
           padding-left: 2px;
@@ -153,7 +152,7 @@ $content_width: 45%;
       }
 
       &.trip_icon {
-        width: 45%;
+        width: fit-content;
 
         img {
           opacity: 1;
@@ -163,7 +162,7 @@ $content_width: 45%;
 
       &.trip_to {
         text-align: center;
-        width: 35%;
+        width: fit-content;
 
         h2 {
           padding-right: 3px;

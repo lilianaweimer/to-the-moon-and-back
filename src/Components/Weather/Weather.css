@@ -48,8 +48,6 @@
 
 .news-title {
   margin: 0;
-  border-top: 2px solid #ADB8EB;
-  border-bottom: 2px solid #ADB8EB;
   font-family: 'Montserrat', sans-serif;
   padding-left: 2%;
   padding-right: 2%;
@@ -62,4 +60,16 @@
   font-style: italic;
   letter-spacing: 0.2em;
   font-weight: 400;
+}
+
+.news-hr {
+  border: 0;
+  width: 24em;
+  height: 3px;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgba(173, 184, 235, 1),
+    transparent
+  );
 }

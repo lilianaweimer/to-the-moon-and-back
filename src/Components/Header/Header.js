@@ -6,6 +6,12 @@ import Logo from "../../Images/to_the_moon_logo_full_color.svg";
 function Header({ isTraveling }) {
   return (
     <div className="header">
+      <img 
+        src='../../Images/hyperspace.png' 
+        alt='hyperspace' 
+        aria-hidden={true} 
+        className='invisible-hyperspace'
+      />
       <section>
         <Link to="/">
           <img

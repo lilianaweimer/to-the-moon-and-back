@@ -11,7 +11,7 @@ const PassengerChart = ({
   destinationAges,
   destination,
 }) => {
-  const [selection, changeSelection] = useState(`Weights at ${destination}`);
+  const [selection, changeSelection] = useState(`Weight at ${destination}`);
 
   let handleChange = (e) => {
     e.preventDefault();
@@ -20,13 +20,13 @@ const PassengerChart = ({
 
   const selectChartDisplay = () => {
     switch (selection) {
-      case "Weights on Earth (lbs)":
+      case "Weight on Earth (lbs)":
         return earthWeights;
-      case `Weights at ${destination} (lbs)`:
+      case `Weight at ${destination} (lbs)`:
         return destinationWeights;
-      case "Ages on Earth":
+      case "Age on Earth":
         return earthAges;
-      case `Ages at ${destination}`:
+      case `Age at ${destination}`:
         return destinationAges;
       default:
         return destinationWeights;
@@ -38,8 +38,8 @@ const PassengerChart = ({
     datasets: [
       {
         label: selection,
-        backgroundColor: "rgba(58, 85, 207, 1)",
-        borderColor: "rgba(61, 21, 102, 1)",
+        backgroundColor: ["rgba(189, 105, 224, 1)", "rgba(183, 140, 221, 1)", "rgba(134, 83, 173, 1)", "rgba(95, 59, 163, 1)", "rgba(120, 45, 186, 1)"],
+        borderColor: ["rgba(115, 70, 142, 1)", "rgba(113, 91, 140, 1)", "rgba(87, 59, 117, 1)", "rgba(42, 31, 81, 1)", "rgba(61, 27, 104, 1)"],
         borderWidth: 1,
         hoverBackgroundColor: "rgba(140, 156, 227, 1)",
         hoverBorderColor: "rgba(133, 52, 213, 1)",
@@ -77,13 +77,13 @@ const PassengerChart = ({
       />
       <select className="chart-selection" onChange={(e) => handleChange(e)}>
         <option
-          value={`Weights at ${destination} (lbs)`}
-        >{`Weights at ${destination} (lbs)`}</option>
+          value={`Weight at ${destination} (lbs)`}
+        >{`Weight at ${destination} (lbs)`}</option>
         <option
-          value={`Ages at ${destination}`}
-        >{`Ages at ${destination}`}</option>
-        <option value="Weights on Earth (lbs)">Weights on Earth (lbs)</option>
-        <option value="Ages on Earth">Ages on Earth</option>
+          value={`Age at ${destination}`}
+        >{`Age at ${destination}`}</option>
+        <option value="Weight on Earth (lbs)">Weight on Earth (lbs)</option>
+        <option value="Age on Earth">Age on Earth</option>
       </select>
     </div>
   );

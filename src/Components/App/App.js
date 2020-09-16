@@ -45,7 +45,6 @@ function App() {
     incomingDays
   ) => {
     event.preventDefault();
-    console.log("incoming days in app", incomingDays);
     setPassengers((passengers.passengers = incomingPassengersData));
     setTripDays(Number(incomingDays));
   };
@@ -107,11 +106,11 @@ function App() {
             path="/"
             render={() => (
               <div className="home-page">
-                <Weather article={newsArticle} />
                 <Destinations
                   allCelestialBodies={allCelestialBodies}
                   selectDestination={selectDestination}
                 />
+                <Weather article={newsArticle} />
               </div>
             )}
           />
