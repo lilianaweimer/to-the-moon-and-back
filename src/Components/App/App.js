@@ -45,7 +45,6 @@ function App() {
     incomingDays
   ) => {
     event.preventDefault();
-    console.log("incoming days in app", incomingDays);
     setPassengers((passengers.passengers = incomingPassengersData));
     setTripDays(Number(incomingDays));
   };
