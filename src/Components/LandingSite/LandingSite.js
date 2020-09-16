@@ -152,7 +152,7 @@ const LandingSite = ({
                 <p>{tripDays} days</p>
                 <hr className='landing-hr' />
                 <h3>Your visit in {destination.name} time</h3>
-                <p>{(tripDays * destination.planet_day).toFixed(1)} days</p>
+                <p>{(tripDays / destination.planet_day).toFixed(1)} days</p>
                 {destination.planet_year && (
                   <p>{(tripDays / destination.planet_year).toFixed(1)} years</p>
                 )}
