@@ -66,7 +66,8 @@ function App() {
       <Header
         selectedDestination={selectedDestination}
         isTraveling={isTraveling}
-      />
+        setTravelingState={setTravelingState}
+        />
       {loading ? (
         <Loading />
       ) : (
