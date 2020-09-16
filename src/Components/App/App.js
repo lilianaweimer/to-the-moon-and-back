@@ -106,11 +106,11 @@ function App() {
             path="/"
             render={() => (
               <div className="home-page">
-                <Weather article={newsArticle} />
                 <Destinations
                   allCelestialBodies={allCelestialBodies}
                   selectDestination={selectDestination}
                 />
+                <Weather article={newsArticle} />
               </div>
             )}
           />
