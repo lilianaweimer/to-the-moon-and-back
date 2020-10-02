@@ -100,7 +100,7 @@ const LandingSite = ({
 
   return destination.id ? (
     isInHyperspace ? (
-      <Hyperspace />
+      <Hyperspace destinationBackground={destination.background_image}/>
     ) : (
       <div className="landing-container">
         <div className="landing-img-info">

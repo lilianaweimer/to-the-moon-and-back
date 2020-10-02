@@ -24,6 +24,12 @@
   right: 500px;
 }
 
+.invisible-background {
+  position: absolute;
+  z-index: -9999;
+  display: none;
+}
+
 @keyframes rocket-move {
   0% {
     transform: rotate(-55deg) scale(120);

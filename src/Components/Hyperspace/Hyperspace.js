@@ -2,9 +2,10 @@ import React from 'react';
 
 import "./Hyperspace.css";
 
-const Hyperspace = () => {
+const Hyperspace = ({ destinationBackground }) => {
   return (
     <div className="scene">
+      <img className='invisible-background' alt='destination' src={destinationBackground} aria-hidden={true}/>
       <img className='hyperspace-rocket' src={require('../../Images/hyperspace-rocket.svg')} alt='a rocket flying through space'/>
       <div className="wrap">
           <div className="wall wall-right"></div>
