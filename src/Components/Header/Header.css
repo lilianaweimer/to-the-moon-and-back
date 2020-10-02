@@ -36,8 +36,6 @@
 }
 
 .invisible-hyperspace {
-  height: 0px;
-  width: 0px;
   position: absolute;
   z-index: -999;
 }
